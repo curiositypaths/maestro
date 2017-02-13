@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { createUser } from '../actions/'
 
-export default class UserSignUp extends Component {
+class UserSignUp extends Component {
   constructor() {
     super()
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,8 +21,8 @@ export default class UserSignUp extends Component {
           <label htmlFor="email">Email: </label>
           <input ref="email" id="email"/><br />
           <label htmlFor="password">Password: </label>
-          <input type="password" ref="userPassword" id ='password'/><br />
-          <label htmlFor="password-confirmation">Password confirmation: </label>
+          <input type="password" ref="userPassword" id="password" /><br />
+          <label htmlFor="password-confirmation" >Password confirmation: </label>
           <input type="password" ref="passwordConfirmation" id='password-confirmation'/><br />
           <button type="submit">Submit</button>
         </form>
@@ -27,3 +30,9 @@ export default class UserSignUp extends Component {
       )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({createUser}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(UserSignUp)
