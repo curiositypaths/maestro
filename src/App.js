@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+// import { Router, Route, Link } from 'react-router'
+import './routes.js';
 
 class App extends Component {
   render() {
@@ -11,6 +13,7 @@ class App extends Component {
         <p className="App-intro">
           Learning trails about programming, design and&hellip;
         </p>
+        {this.props.children}
       </div>
     );
   }
