@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router'
 import App from './App';
-import UserSignUp from './components/user-sign-up'
-import UserLogin from './components/userLogin'
+import UserSignUp from './components/user-signup'
+import UserLogin from './components/user-login'
 import CreateTrail from './components/create-trail'
 
 export default (

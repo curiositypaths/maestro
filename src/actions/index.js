@@ -29,12 +29,25 @@ export const loginUser = userObj => {
 
 export const createTrail = trailObj => {
   let resp = axios.post(`${URL}/trails/new`, trailObj).then(trailData => {
-    browserHistory.push("/YouCreateATrail")
     return trailData
   })
-
+  // assume resp here contains the trail_id
   return {
     type: "CREATE_TRAIL",
     payload: resp
   }
+}
+
+export const createSection = sectionObj => {
+  let resp = axios.post(`${URL}/sections/new`, sectionObj).then(
+    sectionData => {
+      return sectionData.data.id
+    }
+  )
+
+  return {
+    type: "CREATE_SECTION",
+    payload: resp
+  }
+
 }
