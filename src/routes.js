@@ -9,6 +9,6 @@ export default (
   <Route path='/' component={App}>
     <Route path='/register' component={UserSignUp}/>
     <Route path='/login' component={UserLogin} />
-    <Route path='/trails/newtrail' component={CreateTrail} />
+    <Route path='/trails/new' component={CreateTrail} />
   </Route>
   )
