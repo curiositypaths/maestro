@@ -15,12 +15,13 @@ class CreateTrail extends Component {
       trailCategorie: this.refs.trailCategorie.value,
       trailTitle: this.refs.trailTitle.value,
       trailDescription: this.refs.trailDescription.value,
-      sections: [
-        // this.refs.sectionTitle.value: ['1']
-        {[this.refs.sectionTitle.value]:[
-          {[this.refs.resourceTitle.value]: this.refs.resourceUrl.value}
-        ]}
-      ]
+      author_token: sessionStorage.getItem('jwt')
+      // sections: [
+      //   // this.refs.sectionTitle.value: ['1']
+      //   {[this.refs.sectionTitle.value]:[
+      //     {[this.refs.resourceTitle.value]: this.refs.resourceUrl.value}
+      //   ]}
+      // ]
       }
     }
     this.props.createTrail(trail)
@@ -43,7 +44,8 @@ class CreateTrail extends Component {
           <label htmlFor="trailDescription">Description: </label>
           <textarea  ref="trailDescription" id="trailDescription" /><br />
 
-           <h2>Trail sections</h2>
+           {/*
+            <h2>Trail sections</h2>
            <label htmlFor="sectionTitle">Title: </label>
            <input ref="sectionTitle" id="sectionTitle"/><br />
 
@@ -52,8 +54,9 @@ class CreateTrail extends Component {
            <input ref="resourceTitle" id="resourceTitle"/><br />
            <label htmlFor="resourceUrl">Resource link: </label>
            <input ref="resourceUrl" id="resourceUrl"/><br />
+           */}
 
-            <button type="submit">Submit</button>
+            <button type="submit">Add this trail</button>
         </form>
       </div>
       )
