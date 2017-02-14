@@ -18,7 +18,7 @@ class CreateTrail extends Component {
     event.preventDefault()
     const trail = {
       trail: {
-        category: this.refs.category.value,
+        category_id: this.refs.category.value,
         title: this.refs.title.value,
         description: this.refs.description.value,
       },
@@ -28,7 +28,8 @@ class CreateTrail extends Component {
   }
 
   renderCategories() {
-    return this.props.categories.map( (category, i) => <option value={category} key={i} >{category}</option> )
+    return this.props.categories.map( (category, i) => <option value={category} key={i} value={i} >{category}</option> )
+    // remember to get rid of value and put in database id
   }
 
   renderSections() {
