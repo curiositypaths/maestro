@@ -16,8 +16,10 @@ export const createUser = userObj => {
 }
 
 export const loginUser = userObj => {
-  let resp = axios.post(`${URL}/login`, userObj).then( data => {
-    return data
+  let resp = axios.post(`${URL}/login`, userObj).then( userData => {
+    sessionStorage.setItem("jwt", userData.data.jwt)
+    browserHistory.push("/")
+    return userData
   })
   return {
     type: "LOGIN_USER",
