@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  width:800px;
+  margin:auto;
+  margin-top:50px;
 }
 
 .App-header {

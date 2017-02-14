@@ -26,3 +26,15 @@ export const loginUser = userObj => {
     payload: resp
   }
 }
+
+export const createTrail = trailObj => {
+  let resp = axios.post(`${URL}/trails/new`, trailObj).then(trailData => {
+    browserHistory.push("/YouCreateATrail")
+    return trailData
+  })
+
+  return {
+    type: "CREATE_TRAIL",
+    payload: resp
+  }
+}
