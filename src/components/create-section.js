@@ -4,6 +4,9 @@ import { bindActionCreators } from 'redux'
 import { createSection } from '../actions/'
 
 class SectionCreate extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   handleSubmit(event) {
     event.preventDefault()
@@ -19,8 +22,8 @@ class SectionCreate extends Component {
   render() {
     return (
       <form className="section_create" onSubmit={this.props.handleSubmit} >
-        <label>Section title: <input type="text" ref="section_title" /></label>
-        <br /><button>Save Trail</button>
+        <label>Section title: <input type="text" ref="section_title" /><button>Save header</button></label>
+        <br />
       </form>
     )
   }
