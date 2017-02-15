@@ -9,7 +9,6 @@ class CreateTrail extends Component {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.renderCategories = this.renderCategories.bind(this)
-    // this.addSection = this.addSection.bind(this)
     this.state = {
       sections: []
     }
@@ -25,7 +24,7 @@ class CreateTrail extends Component {
       trail: {
         category_id: this.refs.category.value,
         title: this.refs.title.value,
-        description: this.refs.description.value,
+        description: this.refs.description.value
       },
       jwt: sessionStorage.getItem('jwt')
     }

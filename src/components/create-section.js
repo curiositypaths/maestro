@@ -4,9 +4,6 @@ import { bindActionCreators } from 'redux'
 import { createSection } from '../actions/'
 
 class SectionCreate extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   handleSubmit(event) {
     event.preventDefault()

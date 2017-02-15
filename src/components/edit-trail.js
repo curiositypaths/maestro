@@ -2,23 +2,27 @@ import React, { Component } from 'react'
 import { fetchTrail } from '../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import TrailSection from './trail-section'
 
 class EditTrail extends Component {
 
-  // before the component mounts, you should take the id from params
-  // you should fire a mapped dispatch that fetches the current trail
-  // after receiving the response, via the promise resolution
-  // you should be able to set the currentTrail store key to the entire trail object
-
   componentWillMount() {
     this.props.fetchTrail(this.props.params.id)
+    // this.props.fetchSections()
+  }
+
+  addSection() {
+
+  }
+
+  renderSections() {
+    return this.state.sections.map( (section, i) => <form className="section" key={i} ><label>Section: <input type="text" className="section_input" placeholder="Enter section title here" /></label></form>)
   }
 
   renderCurrentTrail() {
     if (this.props.currentTrail === null) {
       return <h1>Loading...</h1>
     } else {
-      console.log(this.props.currentTrail)
       let currentTrail = this.props.currentTrail
       let author = this.props.currentTrail.author
       return (
@@ -26,13 +30,16 @@ class EditTrail extends Component {
           <h1>{currentTrail.title}</h1>
           <h3>{currentTrail.category}</h3>
           <h4>{currentTrail.description}</h4>
-
+          <div className="trail-sections">
+            <button onClick={this.addSection.bind(this)}>Add Section</button>
+          </div>
         </div>
       )
     }
   }
 
   render() {
+    console.log(this.props.currentTrail)
     return (
       this.renderCurrentTrail.call(this)
     )
