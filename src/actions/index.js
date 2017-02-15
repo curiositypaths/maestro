@@ -1,92 +1,73 @@
-import axios from 'axios'
-import { browserHistory } from 'react-router'
-axios.defaults.baseURL = 'http://localhost:8080/api/v1'
-axios.defaults.headers.common["AUTHORIZATION"] = sessionStorage.getItem('jwt')
+import userAdapter from '../adapters/userAdapter'
+import trailAdapter from '../adapters/trailAdapter'
+import categoryAdapter from '../adapters/categoryAdapter'
 
-export const createUser = userObj => {
-  let resp = axios.post('/signup', userObj).then(userData => {
-    sessionStorage.setItem("jwt", userData.data.jwt)
-    browserHistory.push("/")
-    return userData
-  })
-
+export const createUser = userParams => {
+  let userObj = userAdapter.createUser(userParams)
   return {
     type: "CREATE_USER",
-    payload: resp
+    payload: userObj
   }
 }
 
-export const loginUser = userObj => {
-  let resp = axios.post('/login', userObj).then( userData => {
-    sessionStorage.setItem("jwt", userData.data.jwt)
-    browserHistory.push("/")
-    return userData
-  })
+export const loginUser = loginParams => {
+  let userObj = userAdapter.loginUser(loginParams)
   return {
     type: "LOGIN_USER",
-    payload: resp
+    payload: userObj
   }
 }
 
-export const createTrail = trailObj => {
-  let resp = axios.post(`/trails/new`, trailObj).then(trailData => {
-    let trailId = trailData.data.id
-    browserHistory.push(`/trails/${trailId}`)
-    return trailId
-  })
+export const createTrail = trailParams => {
+  let trailObj = trailAdapter.createTrail(trailParams)
   return {
     type: "CREATE_TRAIL",
-    payload: resp
+    payload: trailObj
   }
 }
 
 export const fetchTrail = trailId => {
-
-  let resp = axios.get(`/trails/${trailId}/edit`).then(trail => {
-    return trail.data
-  })
-
+  let trailObj = trailAdapter.fetchTrail(trailId)
   return {
     type: "FETCH_CURRENT_TRAIL",
-    payload: resp
+    payload: trailObj
   }
-
-}
-
-export const createSection = sectionObj => {
-  let resp = axios.post('/sections/new', sectionObj).then(
-    sectionData => {
-      console.log(sectionData)
-      return sectionData.data.id
-    }
-  )
-
-  return {
-    type: "CREATE_SECTION",
-    payload: resp
-  }
-
 }
 
 export const fetchCategories = () => {
-  let resp = axios.get('/categories/all').then(categories => categories.data)
+  let categories = categoryAdapter.fetchCategories()
   return {
     type: 'FETCH_CATEGORIES',
-    payload: resp
-  }
-}
-
-export const addCategories = (categories) => {
-  return {
-    type: 'ADD_CATEGORIES',
     payload: categories
   }
 }
 
-export const fetchSections = (trailId) => {
-  let resp = axios.get(`/trails/${trailId}/sections`).then(response => response.data)
-  return {
-    type: 'FETCH_SECTIONS',
-    payload: resp
-  }
-}
+// export const createSection = sectionObj => {
+//   let resp = axios.post('/sections/new', sectionObj).then(
+//     sectionData => {
+//       console.log(sectionData)
+//       return sectionData.data.id
+//     }
+//   )
+
+//   return {
+//     type: "CREATE_SECTION",
+//     payload: resp
+//   }
+
+// }
+
+// export const addCategories = (categories) => {
+//   return {
+//     type: 'ADD_CATEGORIES',
+//     payload: categories
+//   }
+// }
+
+// export const fetchSections = (trailId) => {
+//   let resp = axios.get(`/trails/${trailId}/sections`).then(response => response.data)
+//   return {
+//     type: 'FETCH_SECTIONS',
+//     payload: resp
+//   }
+// }
