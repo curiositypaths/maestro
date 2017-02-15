@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 
 
 class TrailSection extends Component {
-
   render() {
     return (
       <h1>Trail Section</h1>
     )
   }
-
 }
 
 const mapStateToProps = store => {return { currentTrail: store.currentTrail }}
