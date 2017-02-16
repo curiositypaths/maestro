@@ -1,6 +1,7 @@
 import userAdapter from '../adapters/userAdapter'
 import trailAdapter from '../adapters/trailAdapter'
 import categoryAdapter from '../adapters/categoryAdapter'
+import sectionAdapter from '../adapters/sectionAdapter'
 
 export const createUser = userParams => {
   let userObj = userAdapter.createUser(userParams)
@@ -39,6 +40,14 @@ export const fetchCategories = () => {
   return {
     type: 'FETCH_CATEGORIES',
     payload: categories
+  }
+}
+
+export const createSection = sectionParams => {
+  let trailObj = sectionAdapter.createSection(sectionParams)
+  return {
+    type: "ADD_SECTION",
+    payload: trailObj
   }
 }
 

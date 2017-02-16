@@ -41,13 +41,7 @@ class CreateTrail extends Component {
     )
   }
 
-  // addSection() {
-  //
-  // }
-
-
   render() {
-
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -56,9 +50,7 @@ class CreateTrail extends Component {
           <select ref="category" required >
             { this.renderCategories() }
           </select><br />
-
           <label>Title: <input ref="title" required /></label><br />
-
           <label>Description: <textarea ref="description" required onBlur={this.handleSubmit} /></label>
           <br />
             <button>Add this trail</button>

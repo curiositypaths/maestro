@@ -5,6 +5,6 @@ export default (sections=[{title: ""}], action) => {
     case "FETCH_SECTIONS":
       return action.payload
     default:
-      return categories
+      return sections
   }
 }

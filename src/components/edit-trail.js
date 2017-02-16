@@ -3,20 +3,12 @@ import { fetchTrail } from '../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import TrailSection from './trail-section'
+import SectionCreate from './create-section'
 
 class EditTrail extends Component {
-
   componentWillMount() {
     this.props.fetchTrail(this.props.params.id)
     // this.props.fetchSections()
-  }
-
-  addSection() {
-
-  }
-
-  renderSections() {
-    return this.state.sections.map( (section, i) => <form className="section" key={i} ><label>Section: <input type="text" className="section_input" placeholder="Enter section title here" /></label></form>)
   }
 
   renderCurrentTrail() {
@@ -31,7 +23,7 @@ class EditTrail extends Component {
           <h3>{currentTrail.category}</h3>
           <h4>{currentTrail.description}</h4>
           <div className="trail-sections">
-            <button onClick={this.addSection.bind(this)}>Add Section</button>
+            <SectionCreate trailId={this.props.currentTrail.id} />
           </div>
         </div>
       )

@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router'
 
 export default {
   createTrail: function(trailParams) {
-    return axios.post(`/trails/new`, trailParams).then(trailData => {
+    return axios.post(`/trails`, trailParams).then(trailData => {
       let trailId = trailData.data.id
       browserHistory.push(`/trails/${trailId}/edit`)
       return trailId

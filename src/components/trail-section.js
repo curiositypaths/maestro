@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 
 class TrailSection extends Component {
+  addSection() {
+    debugger
+  }
+
   render() {
+    //this.props.currentTrail.sections
     return (
-      <h1>Trail Section</h1>
+      <div>
+        {this.props.currentTrail.sections.map( (section, i) => <form className="section" key={i} ><label>Section: <input type="text" className="section_input" placeholder="Enter section title here" /></label></form>)}
+        <button onClick={this.addSection.bind(this)}>Add Section</button>
+      </div>
     )
   }
 }
