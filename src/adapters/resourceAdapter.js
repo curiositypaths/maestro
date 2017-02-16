@@ -4,9 +4,9 @@ axios.defaults.headers.common["AUTHORIZATION"] = sessionStorage.getItem('jwt')
 import { browserHistory } from 'react-router'
 
 export default {
-  createSection: function(sectionParams) {
-    return axios.post(`/trails/${sectionParams.section.trail_id}/sections`, sectionParams).then(sectionData => {
-      let trail = sectionData.data
+  createResource: function(resourceParams) {
+    return axios.post(`/trails/${resourceParams.resource.trail_id}/sections/${resourceParams.resource.section_id}/resources`, resourceParams).then(resourceData => {
+      let trail = resourceData.data
       return trail
     })
   }

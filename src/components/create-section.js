@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createSection } from '../actions/'
+import ResourceCreate from './create-resource'
 
 class SectionCreate extends Component {
   constructor(props) {
@@ -22,9 +23,10 @@ class SectionCreate extends Component {
   }
 
   render() {
+    //this.props.currentTrail.sections.map( function(section, i) {debugger})
     return (
       <div>
-        {this.props.currentTrail.sections.map( (section, i) => <p id={i}>{section.title}</p>)
+        {this.props.currentTrail.sections.map( (section, i) => <div><h3 id={i}>{section.title}</h3><ResourceCreate sectionID={section.id} sectionIndex={i} /></div>)
             }
         <form className="section_create" onSubmit={this.handleSubmit} >
           <label>Section title:

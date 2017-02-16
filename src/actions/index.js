@@ -2,6 +2,7 @@ import userAdapter from '../adapters/userAdapter'
 import trailAdapter from '../adapters/trailAdapter'
 import categoryAdapter from '../adapters/categoryAdapter'
 import sectionAdapter from '../adapters/sectionAdapter'
+import resourceAdapter from '../adapters/resourceAdapter'
 
 export const createUser = userParams => {
   let userObj = userAdapter.createUser(userParams)
@@ -55,6 +56,14 @@ export const createSection = sectionParams => {
   let trailObj = sectionAdapter.createSection(sectionParams)
   return {
     type: "ADD_SECTION",
+    payload: trailObj
+  }
+}
+
+export const createResource = resourceParams => {
+  let trailObj = resourceAdapter.createResource(resourceParams)
+  return {
+    type: "ADD_RESOURCE",
     payload: trailObj
   }
 }

@@ -4,6 +4,8 @@ export default (currentTrail=null, action) => {
       return action.payload
     case "ADD_SECTION":
       return action.payload
+    case "ADD_RESOURCE":
+      return action.payload
     default:
       return currentTrail
   }
