@@ -19,8 +19,8 @@ class SectionCreate extends Component {
   render() {
     return (
       <form className="section_create" onSubmit={this.props.handleSubmit} >
-        <label>Section title: <input type="text" ref="section_title" /></label>
-        <br /><button>Save Trail</button>
+        <label>Section title: <input type="text" ref="section_title" /><button>Save header</button></label>
+        <br />
       </form>
     )
   }

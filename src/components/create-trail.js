@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { createTrail } from '../actions/'
+import { createTrail, fetchCategories, addCategories } from '../actions/'
 import CreateSection from './create-section'
 
 class CreateTrail extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.renderCategories = this.renderCategories.bind(this)
     this.state = {
-      sections: [{title: "", trail_id: 0}]
+      sections: []
     }
+  }
+
+  componentWillMount() {
+    this.props.fetchCategories()
   }
 
   handleSubmit(event) {
@@ -20,7 +24,7 @@ class CreateTrail extends Component {
       trail: {
         category_id: this.refs.category.value,
         title: this.refs.title.value,
-        description: this.refs.description.value,
+        description: this.refs.description.value
       },
       jwt: sessionStorage.getItem('jwt')
     }
@@ -28,8 +32,7 @@ class CreateTrail extends Component {
   }
 
   renderCategories() {
-    return this.props.categories.map( (category, i) => <option value={category} key={i} value={i} >{category}</option> )
-    // remember to get rid of value and put in database id
+    return this.props.categories.map( (category, i) => <option value={category.id} key={i} >{ category.name }</option>)
   }
 
   renderSections() {
@@ -37,23 +40,20 @@ class CreateTrail extends Component {
       <CreateSection key={i} title={section.title} />
     )
   }
-  // sections: [
-  //   // this.refs.sectionTitle.value: ['1']
-  //   {[this.refs.sectionTitle.value]:[
-  //     {[this.refs.resourceTitle.value]: this.refs.resourceUrl.value}
-  //   ]}
-  // ]
+
+  // addSection() {
+  //
+  // }
+
 
   render() {
-
-    let sections = this.renderSections()
 
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
           <h1>Create a new Trail</h1>
           <label>Select a category: </label>
-          <select ref="category" placeholder="Select a category" required >
+          <select ref="category" required >
             { this.renderCategories() }
           </select><br />
 
@@ -63,34 +63,22 @@ class CreateTrail extends Component {
           <br />
             <button>Add this trail</button>
         </form>
-
-        <h2>Sections</h2>
-
-        { sections }
-
       </div>
 
       )
   }
 }
-// <h2>Trail sections</h2>
-// <label htmlFor="sectionTitle">Title: </label>
-// <input ref="sectionTitle" id="sectionTitle"/><br />
-//
-// <h3>Trail resources</h3>
-// <label htmlFor="resourceTitle">Resource title: </label>
-// <input ref="resourceTitle" id="resourceTitle"/><br />
-// <label htmlFor="resourceUrl">Resource link: </label>
-// <input ref="resourceUrl" id="resourceUrl"/><br />
+
 
 const mapStateToProps = store => {
   return {
-    categories: store.categories
+    categories: store.categories,
+    trail: store.trail
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ createTrail }, dispatch)
+  return bindActionCreators({ createTrail, fetchCategories, addCategories }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateTrail)
