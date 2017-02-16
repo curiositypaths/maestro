@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux'
 
 class ShowTrail extends Component {
   componentDidMount() {
-    this.props.fetchTrail(this.props.params.id).then(() => this.authCurrentUser())
+    this.props.fetchTrail(this.props.params.id)
+    .then(() => this.authCurrentUser())
   }
 
   authCurrentUser() {
@@ -14,8 +15,8 @@ class ShowTrail extends Component {
 
   renderSections() {
     let sections = this.props.currentTrail.sections
-    return sections.map( section =>
-      <div className="trail-section">
+    return sections.map( (section, i) =>
+      <div key={i} className="trail-section">
         <h3>{ section.title }</h3>
         <ul>
           <li>Hello</li>
@@ -27,15 +28,15 @@ class ShowTrail extends Component {
     if (!!this.props.currentTrail) {
       let currentTrail = this.props.currentTrail
       let author = this.props.currentTrail.author
-      let currentUserId = this.props.currentUser
+      let currentUser = this.props.users.currentUser
       return (
         <div className="trail-container">
           <h1>{ currentTrail.title }</h1>
           <h4>{ currentTrail.description }</h4>
           <h5>AUTHOR ID: { author.id }</h5>
-          <h5>CURRENT USER ID: { this.props.currentUser}</h5>
+          <h5>CURRENT USER ID: { currentUser.id }</h5>
            {
-             (currentUserId == author.id) ?
+             (currentUser.id === author.id) ?
                <a href={`/trails/${currentTrail.id}/edit`}>Edit this trail</a> : <p>Authored by <a href={`/users/${author.id}`}>{author.email}</a></p>
            }
            <div id="trail-sections">
@@ -58,7 +59,7 @@ class ShowTrail extends Component {
 
 const mapStateToProps = store => { return {
   currentTrail: store.currentTrail,
-  currentUser: store.currentUser
+  users: store.users
   }
 }
 

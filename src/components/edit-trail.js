@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { fetchTrail } from '../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import TrailSection from './trail-section'
+// import TrailSection from './trail-section'
 import SectionCreate from './create-section'
 
 class EditTrail extends Component {
@@ -16,7 +16,7 @@ class EditTrail extends Component {
       return <h1>Loading...</h1>
     } else {
       let currentTrail = this.props.currentTrail
-      let author = this.props.currentTrail.author
+      // let author = this.props.currentTrail.author
       return (
         <div id="trail_container">
           <h1>{currentTrail.title}</h1>
