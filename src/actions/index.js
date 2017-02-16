@@ -21,10 +21,18 @@ export const loginUser = loginParams => {
 }
 
 export const authUser = jwt => {
-  let userId = userAdapter.authUser(jwt)
+  let user = userAdapter.authUser(jwt)
   return {
     type: "AUTH_USER",
-    payload: userId
+    payload: user
+  }
+}
+
+export const fetchUser = id => {
+  let user = userAdapter.fetchUser(id)
+  return {
+    type: "FETCH_USER",
+    payload: user
   }
 }
 

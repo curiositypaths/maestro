@@ -20,6 +20,8 @@ export default {
   },
 
   authUser: jwt => axios.post('/users/auth', {jwt: jwt}).then(
-    response => (response.status == 200) ? response.data.user_id : null
-  )
+    response => (response.status === 200) ? response.data.user : null
+  ),
+
+  fetchUser: id => axios.get(`/users/${id}`).then( response => response.data )
 }
