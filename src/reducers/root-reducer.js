@@ -4,12 +4,12 @@ import categoriesReducer from './categories-reducer'
 import trailsReducer from './trails-reducer'
 import sectionsReducer from './sections-reducer'
 import currentTrailReducer from './current-trail-reducer'
-
+import currentUserReducer from './current-user-reducer'
 
 export default combineReducers({
   users: usersReducer,
   categories: categoriesReducer,
   trails: trailsReducer,
-  currentTrail: currentTrailReducer
-  //sections:sectionsReducer
+  currentTrail: currentTrailReducer,
+  currentUser: currentUserReducer
 })

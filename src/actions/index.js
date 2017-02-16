@@ -19,6 +19,14 @@ export const loginUser = loginParams => {
   }
 }
 
+export const authUser = jwt => {
+  let userId = userAdapter.authUser(jwt)
+  return {
+    type: "AUTH_USER",
+    payload: userId
+  }
+}
+
 export const createTrail = trailParams => {
   let trailObj = trailAdapter.createTrail(trailParams)
   return {

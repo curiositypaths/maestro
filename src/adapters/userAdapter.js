@@ -17,5 +17,9 @@ export default {
       browserHistory.push("/")
       return userData
     })
-  }
+  },
+
+  authUser: jwt => axios.post('/users/auth', {jwt: jwt}).then(
+    response => (response.status == 200) ? response.data.user_id : null
+  )
 }
