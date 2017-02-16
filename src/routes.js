@@ -4,6 +4,8 @@ import App from './App';
 import UserSignUp from './components/user-signup'
 import UserLogin from './components/user-login'
 import CreateTrail from './components/create-trail'
+import Navbar from './components/navbar'
+
 
 export default (
   <Route path='/' component={App}>
