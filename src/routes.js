@@ -1,6 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 import App from './App';
+
+import Homepage from './components/homepage'
+
 import UserLogin from './components/user-login'
 import CreateTrail from './components/create-trail'
 import Navbar from './components/navbar'
@@ -13,6 +16,7 @@ import UserProfile from './components/show-user'
 
 export default (
   <Route path='/' component={ App }>
+    <IndexRoute component={ Homepage } />
     <Route path='/register' component={ UserSignUp }/>
     <Route path='/login' component={ UserLogin } />
     <Route path='/trails/new' component={ CreateTrail } />
