@@ -4,6 +4,7 @@ axios.defaults.headers.common["AUTHORIZATION"] = sessionStorage.getItem('jwt')
 import { browserHistory } from 'react-router'
 
 export default {
+
   createTrail: function(trailParams) {
     return axios.post(`/trails`, trailParams).then(trailData => {
       let trailId = trailData.data.id
@@ -11,9 +12,15 @@ export default {
       return trailId
     })
   },
+
   fetchTrail: function(trailId) {
     return axios.get(`/trails/${trailId}`).then(trail => {
       return trail.data
     })
-  }
-}
+  },
+
+  searchTrails: function(query) {
+    return axios.post(`/search/trails/`, {query: query}).then( response => {
+    return response.data
+  })
+}}

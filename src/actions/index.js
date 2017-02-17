@@ -52,6 +52,14 @@ export const fetchTrail = trailId => {
   }
 }
 
+export const searchTrails = query => {
+  let response = trailAdapter.searchTrails(query)
+  return {
+    type: "FILTER_TRAILS",
+    payload: response
+  }
+}
+
 export const fetchCategories = () => {
   let categories = categoryAdapter.fetchCategories()
   return {
