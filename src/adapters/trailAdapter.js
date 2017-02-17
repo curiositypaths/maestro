@@ -12,7 +12,7 @@ export default {
     })
   },
   fetchTrail: function(trailId) {
-    return axios.get(`/trails/${trailId}/edit`).then(trail => {
+    return axios.get(`/trails/${trailId}`).then(trail => {
       return trail.data
     })
   }

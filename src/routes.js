@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import App from './App';
 import UserLogin from './components/user-login'
 import CreateTrail from './components/create-trail'
+import Navbar from './components/navbar'
 
 import EditTrail from './components/edit-trail'
 import ShowTrail from './components/show-trail'
@@ -18,5 +19,6 @@ export default (
     <Route path='/trails/:id/edit' component={ EditTrail } />
     <Route path='/trails/:id' component={ ShowTrail } />
     <Route path='/users/:id' component={ UserProfile } />
+    <Route path='/nav' component={ Navbar } />
   </Route>
   )

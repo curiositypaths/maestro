@@ -19,7 +19,7 @@ class ShowTrail extends Component {
       <div key={i} className="trail-section">
         <h3>{ section.title }</h3>
         <ul>
-          <li>Hello</li>
+          { section.resources.map( (resource, i) => <li key={i}>{resource.title}</li>) }
         </ul>
       </div>)
   }
@@ -46,7 +46,7 @@ class ShowTrail extends Component {
         </div>
       )
     } else {
-      return <h1>Loading...</h1>
+      return <h1></h1>
     }
   }
 

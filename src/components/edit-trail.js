@@ -13,7 +13,7 @@ class EditTrail extends Component {
 
   renderCurrentTrail() {
     if (this.props.currentTrail === null) {
-      return <h1>Loading...</h1>
+      return <h1></h1>
     } else {
       let currentTrail = this.props.currentTrail
       // let author = this.props.currentTrail.author
