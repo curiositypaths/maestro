@@ -7,7 +7,6 @@ class Homepage extends Component {
       <div id="homepage-container">
         <h1>Hello Homepage!</h1>
         <Hero />
-        {/* <TrailsList />  */}
       </div>
     )
   }

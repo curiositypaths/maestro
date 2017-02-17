@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import { loginUser } from '../actions/'
 
 class UserLogin extends Component {
-
   handleLogin(event) {
     event.preventDefault()
     let userObj = {

@@ -1,6 +1,6 @@
 import React from 'react'
 import HeroSearch from './hero-search'
-import TrailCard from './trail-card'
+import TrailSearchResults from './trail-search-results'
 import { connect } from 'react-redux'
 
 
@@ -9,19 +9,10 @@ const Hero = props => {
     <div id="hero">
       <h4>Learn new skills from the best.</h4>
       <HeroSearch />
-      <div>{ props.trailResults.map( (trail, i) => <div className="trail-card" key={i}>
-        <h3>Title: {trail.title}</h3>
-        <p>{trail.description}</p>
-      </div>) }</div>
+      <TrailSearchResults />
     </div>
 
   )
 }
 
-const mapStateToProps = store => {
-  return {
-    trailResults: store.trailResults
-  }
-}
-
-export default connect(mapStateToProps)(Hero)
+export default connect()(Hero)

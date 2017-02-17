@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { bindActionCreators } from 'redux'
-
 
 class TrailSection extends Component {
   addSection() {
@@ -9,7 +7,6 @@ class TrailSection extends Component {
   }
 
   render() {
-    //this.props.currentTrail.sections
     return (
       <div>
         {this.props.currentTrail.sections.map( (section, i) => <form className="section" key={i} ><label>Section: <input type="text" className="section_input" placeholder="Enter section title here" /></label></form>)}
