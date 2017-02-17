@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 //import { fetchUser } from '../actions/index'
-import { authUser, logOutUser, fetchUser } from '../actions/index'
+import { authUser, logOutUser } from '../actions/index'
 
 class NavBar extends Component {
 	constructor(props) {
