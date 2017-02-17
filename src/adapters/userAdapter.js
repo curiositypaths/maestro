@@ -19,16 +19,8 @@ export default {
     })
   },
 
-  // fetchUser: function(userToken) {
-  //   return axios.get('/login', loginParams).then( userData => {
-  //     sessionStorage.setItem("jwt", userData.data.jwt)
-  //     browserHistory.push("/")
-  //     return userData
-  //   })
-  // },
-
   authUser: jwt => axios.post('/users/auth', {jwt: jwt}).then(
-    response => (response.status === 200) ? response.data.user : null
+    response => (response.status === 200) ? response.data : null
   ),
 
   fetchUser: id => axios.get(`/users/${id}`).then( response => response.data )

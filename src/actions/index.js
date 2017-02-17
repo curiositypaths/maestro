@@ -20,6 +20,17 @@ export const loginUser = loginParams => {
   }
 }
 
+export const logOutUser = () => {
+  console.log('getting ready to logut user')
+  let user = {data: {user: {user_id: null }}}
+  let userObj = user
+  sessionStorage.clear()
+  return {
+    type: "LOGIN_USER",
+    payload: userObj
+  }
+}
+
 export const authUser = jwt => {
   let user = userAdapter.authUser(jwt)
   return {
@@ -76,13 +87,13 @@ export const createResource = resourceParams => {
   }
 }
 
-export const fetchUser = () => {
-  let userObj = userAdapter.fetchuser()
-  return {
-    type: 'FETCH_USER',
-    payload: userObj
-  }
-}
+// export const fetchUser = () => {
+//   let userObj = userAdapter.fetchuser()
+//   return {
+//     type: 'FETCH_USER',
+//     payload: userObj
+//   }
+// }
 
 // export const createSection = sectionObj => {
 //   let resp = axios.post('/sections/new', sectionObj).then(

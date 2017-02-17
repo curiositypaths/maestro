@@ -1,18 +1,48 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-//import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux'
+//import { fetchUser } from '../actions/index'
+import { authUser, logOutUser, fetchUser } from '../actions/index'
 
 class NavBar extends Component {
 	constructor(props) {
 		super(props)
+    this.currentUserIsSet = this.currentUserIsSet.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
 	}
 
-	componentDidMount() {
-    //this.props.fetchTrail(this.props.params.id).then(() => this.authCurrentUser())
+	componentMounted() {
+    this.setCurrentUser()
+  }
+
+  setCurrentUser() {
+    this.props.authUser(sessionStorage.jwt)
+  }
+
+  currentUserIsSet() {
+    if (this.props.users.currentUser === undefined)
+      return true
+    else if (this.props.users.currentUser.user_id === null) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  handleLogout() {
+    event.preventDefault()
+    this.props.logOutUser()
+    this.setCurrentUser()
   }
 
 	render() {
-		debugger
+    let logInAndOutOutOptions = null
+    if (this.currentUserIsSet() === true) {
+      logInAndOutOutOptions = <p onClick={ this.handleLogout } className="btn btn-link">Logout</p>
+    } else {
+      logInAndOutOutOptions = <a href='login' className="btn btn-link">Login</a>
+    }
+    console.log('rendering navbar')
 		return (
 		<nav className="navbar container">
 			<div className="columns">
@@ -20,8 +50,7 @@ class NavBar extends Component {
 				<a href="/"><h1>Maestro</h1></a>
 			</section>
 			<section className="navbar-section">
-				<a href="/login" data-method='delete' className="btn btn-link">Hello</a>
-				<a href="/logout" className="btn btn-link">Goodbye</a>
+        {logInAndOutOutOptions}
 			</section>
 		</div>
 		</nav>
@@ -31,12 +60,13 @@ class NavBar extends Component {
 
 const mapStateToProps = store => {
   return {
+    users: store.users,
     currentUser: store.currentUser
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchTrail}, dispatch)
+  return bindActionCreators({authUser, logOutUser}, dispatch)
 }
 
-export default connect(mapStateToProps,null)(NavBar)
+export default connect(mapStateToProps,mapDispatchToProps)(NavBar)

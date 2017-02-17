@@ -10,7 +10,6 @@ class ResourceCreate extends Component {
   }
 
   handleSubmit(event) {
-    console.log('Will I be able to create a resource?')
     event.preventDefault()
     let idOfSection = this.props.sectionID
 

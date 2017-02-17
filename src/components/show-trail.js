@@ -10,7 +10,7 @@ class ShowTrail extends Component {
   }
 
   authCurrentUser() {
-    (sessionStorage.jwt) ? this.props.authUser(sessionStorage.jwt) : null
+    return (sessionStorage.jwt) ? this.props.authUser(sessionStorage.jwt) : null
   }
 
   renderSections() {
