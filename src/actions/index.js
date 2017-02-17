@@ -76,6 +76,14 @@ export const createResource = resourceParams => {
   }
 }
 
+export const fetchUser = () => {
+  let userObj = userAdapter.fetchuser()
+  return {
+    type: 'FETCH_USER',
+    payload: userObj
+  }
+}
+
 // export const createSection = sectionObj => {
 //   let resp = axios.post('/sections/new', sectionObj).then(
 //     sectionData => {
