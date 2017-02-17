@@ -8,8 +8,8 @@ export default props => {
 				<a href="/"><h1>Maestro</h1></a>
 			</section>
 			<section className="navbar-section">
-				<a href="#" className="btn btn-link">login</a>
-				<a href="#" className="btn btn-link">login</a>
+				<a href="/login" data-method='delete' className="btn btn-link">Hello</a>
+				<a href="/logout" className="btn btn-link">Goodbye</a>
 			</section>
 		</div>
 		</nav>
