@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+//import { bindActionCreators } from 'redux'
 
-export default props => {
-	return (
+class NavBar extends Component {
+	constructor(props) {
+		super(props)
+	}
+
+	componentDidMount() {
+    //this.props.fetchTrail(this.props.params.id).then(() => this.authCurrentUser())
+  }
+
+	render() {
+		debugger
+		return (
 		<nav className="navbar container">
 			<div className="columns">
 			<section className="navbar-section" id="logo">
@@ -14,4 +26,17 @@ export default props => {
 		</div>
 		</nav>
 	)
+	}
 }
+
+const mapStateToProps = store => {
+  return {
+    currentUser: store.currentUser
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({fetchTrail}, dispatch)
+}
+
+export default connect(mapStateToProps,null)(NavBar)
