@@ -11,7 +11,7 @@ class NavBar extends Component {
     this.handleLogout = this.handleLogout.bind(this)
 	}
 
-	componentMounted() {
+	componentDidMount() {
     this.setCurrentUser()
   }
 
@@ -21,11 +21,11 @@ class NavBar extends Component {
 
   currentUserIsSet() {
     if (this.props.users.currentUser === undefined)
-      return true
-    else if (this.props.users.currentUser.user_id === null) {
-      return true
-    } else {
       return false
+    else if (this.props.users.currentUser.user_id === 'null' || this.props.users.currentUser.user_id === null) {
+      return false
+    } else {
+      return true
     }
   }
 
