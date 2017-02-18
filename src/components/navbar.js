@@ -42,7 +42,6 @@ class NavBar extends Component {
     } else {
       logInAndOutOutOptions = <div><a href='login' className="btn btn-link">Login</a><a href='register' className="btn btn-link">Register</a></div>
     }
-    console.log('rendering navbar')
 		return (
 		<nav className="navbar container">
 			<div className="columns">

@@ -26,7 +26,7 @@ class SectionCreate extends Component {
     //this.props.currentTrail.sections.map( function(section, i) {debugger})
     return (
       <div>
-        {this.props.currentTrail.sections.map( (section, i) => <div><h3 id={i}>{section.title}</h3><ResourceCreate sectionID={section.id} sectionIndex={i} /></div>)
+        {this.props.currentTrail.sections.map( (section, i) => <div key={i}><h3>{section.title}</h3><ResourceCreate sectionID={section.id} sectionIndex={i} /></div>)
             }
         <form className="section_create" onSubmit={this.handleSubmit} >
           <label>Section title:
