@@ -30,7 +30,7 @@ class ResourceCreate extends Component {
     return (
       <div>
         {
-          resources.map( (resource, i) => <p id={i}>{resource.title} / {resource.url}</p>) // Update the resources to display reference
+          resources.map( (resource, i) => <p key={i}>{resource.title} / {resource.url}</p>) // Update the resources to display reference
         }
         <form className="resource_create" onSubmit={this.handleSubmit} >
           <label>Resource title:
