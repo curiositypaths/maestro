@@ -35,6 +35,7 @@ class ResourceCreate extends Component {
         { resources.map( (resource, i) =>
           <div className="resource-card"><div className="resource-thumb" style={{ backgroundImage: `url('${ resource.image_url }')` }}></div><div className="resource-details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
           )
+
         }
       </div>
     )
