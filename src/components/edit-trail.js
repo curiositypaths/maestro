@@ -31,7 +31,6 @@ class EditTrail extends Component {
   }
 
   render() {
-    console.log(this.props.currentTrail)
     return (
       this.renderCurrentTrail.call(this)
     )

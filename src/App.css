@@ -15,3 +15,34 @@
 .App-intro {
   font-size: large;
 }
+
+.resource-card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  padding: 1em;
+  font-family: "Karla";
+  margin: 1em 0;
+}
+
+.resource-thumb {
+  width: 33.33%;
+  height: 110px;
+  display: inline-block;
+}
+
+.resource-details {
+  display: inline-block;
+  float: right;
+  width: 62%
+}
+
+.resource-details h4 {
+  font-size: 1.3em;
+  margin: .3em 0;
+}
+
+.resource-details p {
+  font-size: .9em;
+  margin: 0;
+}

@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "jsonwebtoken": "^7.3.0",
+    "metascraper": "^1.0.6",
     "node-sass": "^4.5.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

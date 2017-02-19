@@ -29,14 +29,15 @@ class ShowTrail extends Component {
       let currentTrail = this.props.currentTrail
       let author = this.props.currentTrail.author
       let currentUser = this.props.users.currentUser
+      debugger
       return (
         <div className="trail-container">
           <h1>{ currentTrail.title }</h1>
           <h4>{ currentTrail.description }</h4>
-          <h5>AUTHOR ID: { author.id }</h5>
-          <h5>CURRENT USER ID: { currentUser.id }</h5>
+          {/* <h5>AUTHOR ID: { author.id }</h5>
+          <h5>CURRENT USER ID: { currentUser.user_id }</h5> */}
            {
-             (currentUser.id === author.id) ?
+             (currentUser.user_id === author.id) ?
                <a href={`/trails/${currentTrail.id}/edit`}>Edit this trail</a> : <p>Authored by <a href={`/users/${author.id}`}>{author.email}</a></p>
            }
            <div id="trail-sections">
