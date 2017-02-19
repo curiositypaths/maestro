@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-//import { fetchUser } from '../actions/index'
 import { authUser, logOutUser } from '../actions/index'
 
 class NavBar extends Component {
@@ -40,7 +39,7 @@ class NavBar extends Component {
     if (this.currentUserIsSet() === true) {
       logInAndOutOutOptions = <p onClick={ this.handleLogout } className="btn btn-link">Logout</p>
     } else {
-      logInAndOutOutOptions = <div><a href='login' className="btn btn-link">Login</a><a href='register' className="btn btn-link">Register</a></div>
+      logInAndOutOutOptions = <div><a href='/login' className="btn btn-link">Login</a><a href='/register' className="btn btn-link">Register</a></div>
     }
 		return (
 		<nav className="navbar container">

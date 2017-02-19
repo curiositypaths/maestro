@@ -95,40 +95,10 @@ export const createResource = resourceParams => {
   }
 }
 
-// export const fetchUser = () => {
-//   let userObj = userAdapter.fetchuser()
-//   return {
-//     type: 'FETCH_USER',
-//     payload: userObj
-//   }
-// }
-
-// export const createSection = sectionObj => {
-//   let resp = axios.post('/sections/new', sectionObj).then(
-//     sectionData => {
-//       console.log(sectionData)
-//       return sectionData.data.id
-//     }
-//   )
-
-//   return {
-//     type: "CREATE_SECTION",
-//     payload: resp
-//   }
-
-// }
-
-// export const addCategories = (categories) => {
-//   return {
-//     type: 'ADD_CATEGORIES',
-//     payload: categories
-//   }
-// }
-
-// export const fetchSections = (trailId) => {
-//   let resp = axios.get(`/trails/${trailId}/sections`).then(response => response.data)
-//   return {
-//     type: 'FETCH_SECTIONS',
-//     payload: resp
-//   }
-// }
+export const voteForTrack = (voteParams) => {
+  let trailObj = trailAdapter.voteForTrack(voteParams)
+  return {
+    type: "VOTE_FOR_TRACK",
+    payload: trailObj
+  }
+}

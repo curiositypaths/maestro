@@ -6,6 +6,8 @@ export default (currentTrail=null, action) => {
       return action.payload
     case "ADD_RESOURCE":
       return action.payload
+    case "VOTE_FOR_TRACK":
+      return action.payload
     default:
       return currentTrail
   }

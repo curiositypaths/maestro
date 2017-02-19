@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchTrail, authUser } from '../actions/'
+import { fetchTrail, authUser, voteForTrack } from '../actions/'
 import { bindActionCreators } from 'redux'
 
 class ShowTrail extends Component {
+  constructor() {
+    super()
+    this.handleVote = this.handleVote.bind(this)
+  }
+
   componentDidMount() {
     this.props.fetchTrail(this.props.params.id)
     .then(() => this.authCurrentUser())
@@ -11,6 +16,12 @@ class ShowTrail extends Component {
 
   authCurrentUser() {
     return (sessionStorage.jwt) ? this.props.authUser(sessionStorage.jwt) : null
+  }
+
+  handleVote() {
+    let voteParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    console.log(voteParams)
+    this.props.voteForTrack(voteParams)
   }
 
   renderSections() {
@@ -29,10 +40,15 @@ class ShowTrail extends Component {
       let currentTrail = this.props.currentTrail
       let author = this.props.currentTrail.author
       let currentUser = this.props.users.currentUser
+      let trailVotes = this.props.currentTrail.votes.length
+      let usersVotes = this.props.currentTrail.votes.filter(function(vote) {if (this.props.users.currentUser.user_id === vote.user_id) {return 'fasdf'} }.bind(this))
+      let userVoteForTrack = usersVotes.length > 0
+
       return (
         <div className="trail-container">
-          <h1>{ currentTrail.title }</h1>
+          <h1>{ currentTrail.title } ({trailVotes})</h1>
           <h4>{ currentTrail.description }</h4>
+          <h4>{userVoteForTrack ? <span></span> : <span onClick={this.handleVote} className="fa fa-thumbs-up" aria-hidden="true"></span>}</h4>
           <h5>AUTHOR ID: { author.id }</h5>
           <h5>CURRENT USER ID: { currentUser.id }</h5>
            {
@@ -63,7 +79,7 @@ const mapStateToProps = store => { return {
   }
 }
 
-const mapDispatchToProps = dispatch => { return bindActionCreators({ fetchTrail, authUser }, dispatch)
+const mapDispatchToProps = dispatch => { return bindActionCreators({ fetchTrail, authUser, voteForTrack }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowTrail)

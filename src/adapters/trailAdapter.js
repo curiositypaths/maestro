@@ -19,6 +19,12 @@ export default {
     })
   },
 
+  voteForTrack: function(voteParams) {
+    return axios.post(`/trails/${voteParams.trailId}/votes/${voteParams.userId}`).then(trail => {
+      return trail.data
+    })
+  },
+
   searchTrails: function(query) {
     return axios.post(`/search/trails/`, {query: query}).then( response => {
     return response.data
