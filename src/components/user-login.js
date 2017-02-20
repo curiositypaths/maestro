@@ -19,8 +19,8 @@ class UserLogin extends Component {
     return (
       <form className="login_form" onSubmit={this.handleLogin.bind(this)}>
         <h1>Log In</h1>
-        <label>Email: <input type="text" placeholder="Enter email" ref="email" /></label><br /><br />
-        <label>Password: <input type="password" placeholder="Enter password" ref="password" /></label><br /><br />
+        <label>Email: <input type="text" placeholder="Enter email" ref="email" required /></label><br /><br />
+        <label>Password: <input type="password" placeholder="Enter password" ref="password" required /></label><br /><br />
         <button>Log In</button>
       </form>
     )
