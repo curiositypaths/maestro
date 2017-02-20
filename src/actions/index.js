@@ -110,3 +110,19 @@ export const voteForTrack = (voteParams) => {
     payload: trailObj
   }
 }
+
+export const followTrack = (followParams) => {
+  let trailObj = trailAdapter.followTrack(followParams)
+  return {
+    type: "FOLLOW_TRACK",
+    payload: trailObj
+  }
+}
+
+export const unFollowTrack = (followParams) => {
+  let trailObj = trailAdapter.unFollowTrack(followParams)
+  return {
+    type: "UNFOLLOW_TRACK",
+    payload: trailObj
+  }
+}

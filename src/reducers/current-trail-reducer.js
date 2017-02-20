@@ -8,6 +8,10 @@ export default (currentTrail=null, action) => {
       return action.payload
     case "VOTE_FOR_TRACK":
       return action.payload
+    case "FOLLOW_TRACK":
+      return action.payload
+    case "UNFOLLOW_TRACK":
+      return action.payload
     default:
       return currentTrail
   }
