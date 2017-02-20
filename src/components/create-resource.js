@@ -33,7 +33,7 @@ class ResourceCreate extends Component {
     return (
       <div className="resource-list">
         { resources.map( (resource, i) =>
-          <div className="resource-card"><div className="resource-thumb" style={{ backgroundImage: `url('${ resource.image_url }')` }}></div><div className="resource-details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
+          <div className="resource-card" key={i}><div className="resource-thumb" style={{ backgroundImage: `url('${ resource.image_url }')` }}></div><div className="resource-details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
           )
 
         }

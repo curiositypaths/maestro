@@ -19,6 +19,13 @@ export default {
     })
   },
 
+  deleteTrail: function(trailId) {
+    return axios.delete(`/trails/${trailId}`, trailId).then( trail => {
+      browserHistory.push(`/`)
+      return trail.data
+    })
+  },
+
   voteForTrack: function(voteParams) {
     return axios.post(`/trails/${voteParams.trailId}/votes/${voteParams.userId}`).then(trail => {
       return trail.data

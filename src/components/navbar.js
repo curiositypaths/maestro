@@ -37,10 +37,11 @@ class NavBar extends Component {
 	render() {
     let logInAndOutOutOptions = null
     if (this.currentUserIsSet() === true) {
-      logInAndOutOutOptions = <p onClick={ this.handleLogout } className="btn btn-link">Logout</p>
+      logInAndOutOutOptions = <div className="nav"><a href={`/users/${this.props.users.currentUser.user_id}`}>My Profile</a><p onClick={ this.handleLogout } className="btn btn-link">Logout</p></div>
     } else {
       logInAndOutOutOptions = <div><a href='/login' className="btn btn-link">Login</a><a href='/register' className="btn btn-link">Register</a></div>
     }
+
 		return (
 		<nav className="navbar container">
 			<div className="columns">

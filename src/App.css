@@ -29,6 +29,8 @@
   width: 33.33%;
   height: 110px;
   display: inline-block;
+  background-size: cover;
+  border-radius: 3px;
 }
 
 .resource-details {

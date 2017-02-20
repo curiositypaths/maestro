@@ -63,6 +63,14 @@ export const fetchTrail = trailId => {
   }
 }
 
+export const deleteTrail = trailId => {
+  let trailObj = trailAdapter.deleteTrail(trailId)
+  return {
+    type: "DELETE_TRAIL",
+    payload: trailObj
+  }
+}
+
 export const searchTrails = query => {
   let response = trailAdapter.searchTrails(query)
   return {

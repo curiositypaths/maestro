@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { fetchTrail } from '../actions/'
+import { fetchTrail, deleteTrail } from '../actions/'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-// import TrailSection from './trail-section'
 import SectionCreate from './create-section'
 
 class EditTrail extends Component {
   componentWillMount() {
     this.props.fetchTrail(this.props.params.id)
-    // this.props.fetchSections()
+  }
+
+  deleteTrail() {
+    this.props.deleteTrail(this.props.params.id)
   }
 
   renderCurrentTrail() {
@@ -25,6 +27,7 @@ class EditTrail extends Component {
           <div className="trail-sections">
             <SectionCreate trailId={this.props.currentTrail.id} />
           </div>
+          <button onClick={this.deleteTrail.bind(this)}>Delete this Trail</button>
         </div>
       )
     }
@@ -44,7 +47,7 @@ const mapStateToProps = store => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchTrail}, dispatch)
+  return bindActionCreators({fetchTrail, deleteTrail}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTrail)
