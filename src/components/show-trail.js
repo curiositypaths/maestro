@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchTrail, authUser, voteForTrack } from '../actions/'
+import { fetchTrail, authUser, voteForTrack, followTrack, unFollowTrack } from '../actions/'
 import { bindActionCreators } from 'redux'
 
 class ShowTrail extends Component {
   constructor() {
     super()
     this.handleVote = this.handleVote.bind(this)
+    this.handleFollow = this.handleFollow.bind(this)
+    this.handleUnFollow = this.handleUnFollow.bind(this)
   }
 
   componentDidMount() {
@@ -22,6 +24,18 @@ class ShowTrail extends Component {
     let voteParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
     console.log(voteParams)
     this.props.voteForTrack(voteParams)
+  }
+
+  handleFollow(event) {
+    event.preventDefault()
+    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    this.props.followTrack(followParams)
+  }
+
+  handleUnFollow(event) {
+    event.preventDefault()
+    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    this.props.unFollowTrack(followParams)
   }
 
   renderSections() {
@@ -41,8 +55,10 @@ class ShowTrail extends Component {
       let author = this.props.currentTrail.author
       let currentUser = this.props.users.currentUser
       let trailVotes = this.props.currentTrail.votes.length
-      let usersVotes = this.props.currentTrail.votes.filter(function(vote) {if (this.props.users.currentUser.user_id === vote.user_id) {return 'fasdf'} }.bind(this))
+      let usersVotes = this.props.currentTrail.votes.filter(function(vote) {if (this.props.users.currentUser.user_id === vote.user_id) {return 'User voted for trail'} }.bind(this))
       let userVoteForTrack = usersVotes.length > 0
+      let trailFollower = this.props.currentTrail.follows.filter(function(follower) {if (this.props.users.currentUser.user_id === follower.user_id) {return 'User voted for trail'} }.bind(this))
+      let userFollowsTrail = trailFollower.length > 0
 
       return (
         <div className="trail-container">
@@ -50,6 +66,7 @@ class ShowTrail extends Component {
           <h4>{ currentTrail.description }</h4>
 
           <h4>{userVoteForTrack ? <span></span> : <span onClick={this.handleVote} className="fa fa-thumbs-up" aria-hidden="true"></span>}</h4>
+          <h4> {userFollowsTrail ? <button onClick={this.handleUnFollow}>Unfollow Trail</button> : <button onClick={this.handleFollow}>Follow trail</button> }</h4>
           <h5>AUTHOR ID: { author.id }</h5>
           <h5>CURRENT USER ID: { currentUser.id }</h5>
            {
@@ -80,7 +97,7 @@ const mapStateToProps = store => { return {
   }
 }
 
-const mapDispatchToProps = dispatch => { return bindActionCreators({ fetchTrail, authUser, voteForTrack }, dispatch)
+const mapDispatchToProps = dispatch => { return bindActionCreators({ fetchTrail, authUser, voteForTrack, followTrack, unFollowTrack }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowTrail)

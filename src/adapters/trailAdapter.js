@@ -25,6 +25,18 @@ export default {
     })
   },
 
+  followTrack: function(followParams) {
+    return axios.post(`/trails/${followParams.trailId}/follows/${followParams.userId}`).then(trail => {
+      return trail.data
+    })
+  },
+
+  unFollowTrack: function(followParams) {
+    return axios.delete(`/trails/${followParams.trailId}/follows/${followParams.userId}`).then(trail => {
+      return trail.data
+    })
+  },
+
   searchTrails: function(query) {
     return axios.post(`/search/trails/`, {query: query}).then( response => {
     return response.data
