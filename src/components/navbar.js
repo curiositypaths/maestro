@@ -29,11 +29,9 @@ class NavBar extends Component {
     }
   }
 
-  handleLogout() {
+  handleLogout(event) {
     event.preventDefault()
     this.props.logOutUser()
-		// this.setState({userLoaded: !this.state.userLoaded})
-    // this.setCurrentUser()
   }
 
   handleGetUserTrails() {
@@ -45,7 +43,7 @@ class NavBar extends Component {
 	render() {
 		let logInAndOutOutOptions
     if (this.currentUserIsSet() === true) {
-      logInAndOutOutOptions = <div className="navbar__buttons__container"><a href={`/users/${this.props.users.currentUser.user_id}`}>My Profile</a><a href="#" onClick={ this.handleLogout }>Logout</a></div>
+      logInAndOutOutOptions = <div className="navbar__buttons__container"><a href={`/users/${this.props.users.currentUser.user_id}`}>My Profile</a><a href="" onClick={ this.handleLogout }>Logout</a></div>
     } else {
       logInAndOutOutOptions = <div className="navbar__buttons__container"><a href='/login' className="btn btn-link">Login</a><a href='/register' className="btn btn-link">Register</a></div>
     }

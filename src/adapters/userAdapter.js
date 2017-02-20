@@ -15,7 +15,6 @@ export default {
     return axios.post('/login', loginParams).then( userData => {
       sessionStorage.setItem("jwt", userData.data.jwt)
       browserHistory.push("/")
-      debugger
       return userData
     })
   },
