@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import './routes.js';
 import NavBar from './components/navbar.js';
 

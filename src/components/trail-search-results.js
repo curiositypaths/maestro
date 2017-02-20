@@ -5,8 +5,8 @@ import TrailCard from './trail-card'
 
 const TrailSearchResults = props => {
   return (
-   <div>
-     { props.trailResults.map( (trail, i) => <TrailCard trail={trail} index={i}/> ) }
+   <div className="filter-results">
+     { props.trailResults.map( (trail, i) => <TrailCard trail={trail} key={i}/> ) }
    </div>
   )
 }

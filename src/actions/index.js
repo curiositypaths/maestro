@@ -3,6 +3,7 @@ import trailAdapter from '../adapters/trailAdapter'
 import categoryAdapter from '../adapters/categoryAdapter'
 import sectionAdapter from '../adapters/sectionAdapter'
 import resourceAdapter from '../adapters/resourceAdapter'
+import { browserHistory } from 'react-router'
 
 export const createUser = userParams => {
   let userObj = userAdapter.createUser(userParams)
@@ -21,7 +22,8 @@ export const loginUser = loginParams => {
 }
 
 export const logOutUser = () => {
-  console.log('getting ready to logut user')
+  browserHistory.push("/")
+
   let user = {data: {user: {user_id: null }}}
   let userObj = user
   sessionStorage.clear()

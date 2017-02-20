@@ -1,15 +1,13 @@
 import React from 'react'
 import HeroSearch from './hero-search'
-import TrailSearchResults from './trail-search-results'
 import { connect } from 'react-redux'
 
 
 const Hero = props => {
   return (
-    <div id="hero">
-      <h4>Learn new skills from the best.</h4>
-      <HeroSearch />
-      <TrailSearchResults />
+    <div className="hero">
+      <h4 className="hero__header">Learn new skills from the best.</h4>
+      <HeroSearch className="hero__search" />
     </div>
 
   )

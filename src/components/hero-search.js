@@ -11,11 +11,13 @@ class HeroSearch extends Component {
   }
 
   handleSearch() {
-    this.props.searchTrails(this.refs.search.value)
+    if (this.refs.search.value.trim()) {
+      this.props.searchTrails(this.refs.search.value)
+    }
   }
 
   render() {
-    return <form onSubmit={e => e.preventDefault()}><input type="text" placeholder="Enter what you wanna learn" ref="search" onChange={this.handleSearch.bind(this)} /></form>
+    return <form onSubmit={e => e.preventDefault()}><input type="text" placeholder="Enter what you wanna learn" ref="search" onChange={this.handleSearch.bind(this)} className="hero__search" /></form>
   }
 }
 
