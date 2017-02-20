@@ -59,7 +59,6 @@ class ShowTrail extends Component {
       let userVoteForTrack = usersVotes.length > 0
       let trailFollower = this.props.currentTrail.follows.filter(function(follower) {if (this.props.users.currentUser.user_id === follower.user_id) {return 'User voted for trail'} }.bind(this))
       let userFollowsTrail = trailFollower.length > 0
-
       return (
         <div className="trail-container">
           <h1>{ currentTrail.title } ({trailVotes})</h1>

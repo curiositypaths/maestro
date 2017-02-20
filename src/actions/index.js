@@ -1,3 +1,4 @@
+import { browserHistory } from 'react-router'
 import userAdapter from '../adapters/userAdapter'
 import trailAdapter from '../adapters/trailAdapter'
 import categoryAdapter from '../adapters/categoryAdapter'
@@ -21,12 +22,12 @@ export const loginUser = loginParams => {
 }
 
 export const logOutUser = () => {
-  console.log('getting ready to logut user')
   let user = {data: {user: {user_id: null }}}
   let userObj = user
   sessionStorage.clear()
+  browserHistory.push("/")
   return {
-    type: "LOGIN_USER",
+    type: "LOGOUT_USER",
     payload: userObj
   }
 }

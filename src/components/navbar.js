@@ -48,8 +48,6 @@ class NavBar extends Component {
     } else {
       logInAndOutOutOptions = <div><a href='/login' className="btn btn-link">Login</a><a href='/register' className="btn btn-link">Register</a></div>
     }
-    console.log(`User is following these trails: ${this.props.followedTrails}`)
-    console.log(this.props.followedTrails)
 		return (
 		<nav className="navbar container">
       <a onClick={ this.handleGetUserTrails }>Get user trails</a>

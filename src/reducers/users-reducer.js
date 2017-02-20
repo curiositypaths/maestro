@@ -4,8 +4,8 @@ export default (users={currentUser: {user_id: null}, allUsers: [], currentlyView
       return { ...users, currentUser: action.payload.data.user }
     case "LOGIN_USER":
       return { ...users, currentUser: action.payload.data.user }
-    case "LOGOUT_USER":
-      return { ...users, currentUser: action.payload.data.user }
+    // case "LOGOUT_USER":
+    //   return { ...users, currentUser: action.payload.data.user }
     case "FETCH_USER":
       return { ...users, currentlyViewedUser: action.payload }
     case "AUTH_USER":
