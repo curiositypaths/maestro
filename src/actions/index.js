@@ -126,3 +126,11 @@ export const unFollowTrack = (followParams) => {
     payload: trailObj
   }
 }
+
+export const getTrailsUserFollows = (userParams) => {
+  let trailsObj = trailAdapter.getTrailsUserFollows(userParams)
+  return {
+    type: "GET_TRAILS_USER_FOLLOWS",
+    payload: trailsObj
+  }
+}

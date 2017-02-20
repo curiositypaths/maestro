@@ -44,6 +44,12 @@ export default {
     })
   },
 
+   getTrailsUserFollows: function(userParams) {
+    return axios.get(`/users/${userParams.userId}/trails`).then(trails => {
+      return trails.data
+    })
+  },
+
   searchTrails: function(query) {
     return axios.post(`/search/trails/`, {query: query}).then( response => {
     return response.data

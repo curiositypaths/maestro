@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { authUser, logOutUser } from '../actions/index'
+import { authUser, logOutUser, getTrailsUserFollows } from '../actions/index'
 
 class NavBar extends Component {
 	constructor(props) {
 		super(props)
     this.currentUserIsSet = this.currentUserIsSet.bind(this)
     this.handleLogout = this.handleLogout.bind(this)
+    this.handleGetUserTrails = this.handleGetUserTrails.bind(this)
 	}
 
 	componentDidMount() {
@@ -34,6 +35,12 @@ class NavBar extends Component {
     this.setCurrentUser()
   }
 
+  handleGetUserTrails() {
+    event.preventDefault()
+    let user = {'userId': this.props.users.currentUser.user_id}
+    this.props.getTrailsUserFollows(user)
+  }
+
 	render() {
     let logInAndOutOutOptions = null
     if (this.currentUserIsSet() === true) {
@@ -41,9 +48,11 @@ class NavBar extends Component {
     } else {
       logInAndOutOutOptions = <div><a href='/login' className="btn btn-link">Login</a><a href='/register' className="btn btn-link">Register</a></div>
     }
-
+    console.log(`User is following these trails: ${this.props.followedTrails}`)
+    console.log(this.props.followedTrails)
 		return (
 		<nav className="navbar container">
+      <a onClick={ this.handleGetUserTrails }>Get user trails</a>
 			<div className="columns">
 			<section className="navbar-section" id="logo">
 				<a href="/"><h1>Maestro</h1></a>
@@ -59,12 +68,13 @@ class NavBar extends Component {
 
 const mapStateToProps = store => {
   return {
-    users: store.users
+    users: store.users,
+    followedTrails: store.followedTrails
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({authUser, logOutUser}, dispatch)
+  return bindActionCreators({authUser, logOutUser, getTrailsUserFollows}, dispatch)
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(NavBar)
