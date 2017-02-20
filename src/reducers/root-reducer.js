@@ -7,7 +7,8 @@ import currentTrailReducer from './current-trail-reducer'
 import searchTrailsReducer from './search-trails-reducer'
 import trailsUserFollows from './user-trails-reducer'
 
-export default combineReducers({
+
+const appReducer = combineReducers({
   users: usersReducer,
   categories: categoriesReducer,
   trails: trailsReducer,
@@ -15,3 +16,14 @@ export default combineReducers({
   currentTrail: currentTrailReducer,
   trailResults: searchTrailsReducer
 })
+
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+
+export default rootReducer
