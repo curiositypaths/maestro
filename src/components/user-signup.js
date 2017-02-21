@@ -11,7 +11,13 @@ class UserSignUp extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const user = {user: {email: this.refs.email.value, password: this.refs.userPassword.value, password_confirmation: this.refs.passwordConfirmation.value}}
+    const user = {user: {
+      first_name: this.refs.firstName.value,
+      last_name: this.refs.lastName.value,
+      email: this.refs.email.value,
+      password: this.refs.userPassword.value,
+      password_confirmation: this.refs.passwordConfirmation.value
+    }}
     this.props.createUser(user)
   }
 
