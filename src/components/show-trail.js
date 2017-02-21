@@ -65,7 +65,7 @@ class ShowTrail extends Component {
           <h4>{ currentTrail.description }</h4>
 
           <h4>{userVoteForTrack ? <span></span> : <span onClick={this.handleVote} className="fa fa-thumbs-up" aria-hidden="true"></span>}</h4>
-          <h4> {userFollowsTrail ? <button onClick={this.handleUnFollow}>Unfollow Trail</button> : <button onClick={this.handleFollow}>Follow trail</button> }</h4>
+          {userFollowsTrail ? <button onClick={this.handleUnFollow}>Unfollow Trail</button> : <button onClick={this.handleFollow}>Follow trail</button> }
           <h5>AUTHOR ID: { author.id }</h5>
           <h5>CURRENT USER ID: { currentUser.id }</h5>
            {
