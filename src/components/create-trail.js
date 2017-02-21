@@ -45,16 +45,16 @@ class CreateTrail extends Component {
   render() {
     return (
       <div className="create-trail">
-        <h1 className="create-trail__heading">Create a new Trail</h1>
+        <h1 className="create-trail__heading titleize">Create a new Trail</h1>
         <p>Trails are a curated list of tutorials that help you learn a new skill. Think of all the resources and guides that helped you get to where you are today. How would you lead a friend down the same path, but <em>better</em>?</p>
         <form onSubmit={this.handleSubmit}>
           <label>Select a category: </label>
           <select ref="category" required >
             { this.renderCategories() }
           </select><br />
-          <label>Title: <input ref="title" required /></label><br />
-          <label>Description: <textarea ref="description" required /></label><br />
-          <label>Add a header image (via URL): <input type="text" ref="image_url" /></label>
+          <label><strong>Title:</strong> <input ref="title" required className="titleize elongate" /></label><br /><br />
+          <label><strong>Description:</strong> <br /><textarea ref="description" className="elongate" required /></label><br /><br />
+          <label><strong>Add a header image (via URL):</strong> <input type="text" ref="image_url" className="elongate" /></label>
           <br />
             <button>Add this trail</button>
         </form>

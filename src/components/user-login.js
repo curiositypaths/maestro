@@ -17,12 +17,14 @@ class UserLogin extends Component {
 
   render() {
     return (
-      <form className="login_form" onSubmit={this.handleLogin.bind(this)}>
-        <h1>Log In</h1>
-        <label>Email: <input type="text" placeholder="Enter email" ref="email" required /></label><br /><br />
-        <label>Password: <input type="password" placeholder="Enter password" ref="password" required /></label><br /><br />
-        <button>Log In</button>
-      </form>
+      <div className="container">
+        <form className="section-inner" onSubmit={this.handleLogin.bind(this)}>
+          <h1 className="trail-container__title" >Log In</h1>
+          <label className="section-inner__input">Email: <input type="text" placeholder="Enter email" ref="email" required className="max" /></label><br /><br />
+          <label className="section-inner__input">Password: <input type="password" placeholder="Enter password" ref="password" required className="max" /></label><br /><br />
+          <button>Log In</button>
+        </form>
+      </div>
     )
   }
 }

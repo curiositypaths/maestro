@@ -54,6 +54,12 @@ input {
   border: 0;
   border-bottom: 2px solid #c2c2c2;
   outline: none;
+  @media only screen and (min-width: $media-mobile-break) {
+    width: 80%;
+  }
+  @media only screen and (min-width: $media-tablet-break) {
+  width: 50%;
+  }
 }
 
 button {
@@ -84,6 +90,15 @@ textarea {
 
 .center {
   text-align: center;
+}
+
+.titleize {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.max {
+  width: 100% !important;
 }
 
 .section__hr {
@@ -227,7 +242,7 @@ textarea {
 
 // Create elements, edit page, and create section styling
 
-.trail-container {
+.container {
   display: flex;
   flex-wrap: wrap;
   @media only screen and (min-width: $media-mobile-break) {
@@ -243,6 +258,7 @@ textarea {
 
 .trail-container__title {
   flex: 0 0 100%;
+  margin: 1em 0;
   text-align: center;
   @media screen and (orientation: portrait) {
     font-size: 5vh;
@@ -290,11 +306,16 @@ textarea {
     width: 65%;
   }
   @media only screen and (min-width: $media-wide-break) {
-    width: 50%;
+    width: 60%;
   }
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+}
+
+.section-inner__input {
+  flex: 0 0 100%;
+  margin: 1em 0;
 }
 
 .resource-card {
