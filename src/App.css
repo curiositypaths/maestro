@@ -22,16 +22,20 @@
   flex-wrap: wrap;
   justify-content: center; }
 
+.homepage-container {
+  width: 100%; }
+
 a {
+  transition: color, .2s;
   color: #444;
   text-decoration: none; }
 
-.hero__search {
-  border: 0;
-  outline: none;
-  font-size: 3em;
-  text-align: center;
-  border-bottom: 3px solid black; }
+a:hover {
+  transition: color, .2s;
+  color: #ffc689; }
+
+.bold {
+  font-weight: bold; }
 
 .navbar {
   width: 100%;
@@ -41,12 +45,11 @@ a {
 
 .navbar__header {
   text-decoration: none;
-  font-weight: bold;
   flex: 0 0 100%;
   text-align: center; }
 
 .navbar__buttons {
-  width: 50%; }
+  flex: 0 0 100%; }
 
 .navbar__buttons__container {
   display: flex;
@@ -62,21 +65,55 @@ a {
   justify-content: space-between; }
 
 .filter-results__trail-card {
-  flex: 0 1 30%;
   text-align: center;
   padding: 1.5em;
   border: 1px solid #e1e1e1;
   border-radius: 5px;
   margin: 1em 15px; }
+  @media only screen and (max-width: 1680px) {
+    .filter-results__trail-card {
+      flex: 0 1 23%; } }
+  @media only screen and (max-width: 1440px) {
+    .filter-results__trail-card {
+      flex: 0 1 30%; } }
+  @media only screen and (max-width: 1024px) {
+    .filter-results__trail-card {
+      flex: 0 1 45%; } }
+  @media only screen and (max-width: 550px) {
+    .filter-results__trail-card {
+      flex: 0 1 100%; } }
 
 .filter-results__trail-card h3 {
   margin: .3em 0; }
 
 .hero {
-  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
   text-align: center;
   height: 60vh;
   background-size: 400px; }
+
+.hero__header {
+  flex: 0 0 100%; }
+
+.hero__search {
+  flex: 0 0 100%; }
+
+.hero__search__input {
+  border: 0;
+  width: 20em;
+  outline: none;
+  font-size: 2em;
+  text-align: center;
+  border-bottom: 3px solid black; }
+  @media only screen and (orientation: landscape) {
+    .hero__search__input {
+      width: 14em; } }
+  @media only screen and (orientation: portrait) {
+    .hero__search__input {
+      font-size: 5vw;
+      max-width: 80vw; } }
 
 .App-header {
   background-color: #222;

@@ -1,4 +1,6 @@
+/////// BASE
 @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i');
+@import 'variables.scss';
 
 .animated {
   animation-duration: .5s;
@@ -31,22 +33,26 @@
   justify-content: center;
 }
 
+.homepage-container {
+  width: 100%;
+}
+
 a {
+  transition: color, .2s;
   color: #444;
   text-decoration: none;
 }
 
 a:hover {
-
+  transition: color, .2s;
+  color: $hover-color;
 }
 
-.hero__search {
-  border: 0;
-  outline: none;
-  font-size: 3em;
-  text-align: center;
-  border-bottom: 3px solid black;
+.bold {
+  font-weight: bold;
 }
+
+///////// UI
 
 .navbar {
   width: 100%;
@@ -57,13 +63,12 @@ a:hover {
 
 .navbar__header {
   text-decoration: none;
-  font-weight: bold;
   flex: 0 0 100%;
   text-align: center;
 }
 
 .navbar__buttons {
-  width: 50%;
+  flex: 0 0 100%;
 }
 
 .navbar__buttons__container {
@@ -71,8 +76,6 @@ a:hover {
   text-align: center;
   justify-content: space-around;
 }
-
-
 
 
 .navbar__buttons__container a {
@@ -86,7 +89,19 @@ a:hover {
 }
 
 .filter-results__trail-card {
-  flex: 0 1 30%;
+  @media only screen and (max-width: $media-wide-break) {
+    flex: 0 1 23%;
+  }
+  @media only screen and (max-width: $media-medium-break) {
+    flex: 0 1 30%;
+  }
+  @media only screen and (max-width: $media-tablet-break) {
+    flex: 0 1 45%;
+  }
+
+  @media only screen and (max-width: $media-portrait-break) {
+    flex: 0 1 100%;
+  }
   text-align: center;
   padding: 1.5em;
   border: 1px solid #e1e1e1;
@@ -99,10 +114,36 @@ a:hover {
 }
 
 .hero {
-  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
   text-align: center;
   height: 60vh;
   background-size: 400px;
+}
+
+.hero__header {
+  flex: 0 0 100%;
+}
+
+.hero__search {
+  flex: 0 0 100%;
+}
+
+.hero__search__input {
+  border: 0;
+  width: 20em;
+  outline: none;
+  font-size: 2em;
+  @media only screen and (orientation: landscape) {
+    width: 14em;
+  }
+  @media only screen and (orientation: portrait) {
+    font-size: 5vw;
+    max-width: 80vw;
+  }
+  text-align: center;
+  border-bottom: 3px solid black;
 }
 
 .App-header {

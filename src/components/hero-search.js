@@ -17,7 +17,7 @@ class HeroSearch extends Component {
   }
 
   render() {
-    return <form onSubmit={e => e.preventDefault()}><input type="text" placeholder="Enter what you wanna learn" ref="search" onChange={this.handleSearch.bind(this)} className="hero__search" /></form>
+    return <form className="hero__search" onSubmit={e => e.preventDefault()}><input type="text" placeholder="What will you learn today?" ref="search" onClick={e => e.target.placeholder = ""} onBlur={e => e.target.placeholder = "What will you learn today?"} onChange={this.handleSearch.bind(this)} className="hero__search__input bold" /></form>
   }
 }
 
