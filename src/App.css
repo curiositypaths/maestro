@@ -23,7 +23,8 @@
   justify-content: center; }
 
 .homepage-container {
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
 
 a {
   transition: color, .2s;
@@ -65,6 +66,7 @@ a:hover {
   justify-content: space-between; }
 
 .filter-results__trail-card {
+  flex: 0 1 23%;
   text-align: center;
   padding: 1.5em;
   border: 1px solid #e1e1e1;
@@ -92,28 +94,46 @@ a:hover {
   align-content: center;
   text-align: center;
   height: 60vh;
-  background-size: 400px; }
+  background: url("http://i.imgur.com/NYf11DY.png") 15% 15%/15%, linear-gradient(45deg, #f6e6b4 0%, #ed9017 100%);
+  margin: 5vh 0;
+  color: white; }
 
 .hero__header {
   flex: 0 0 100%; }
 
 .hero__search {
   flex: 0 0 100%; }
+  .hero__search ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: rgba(255, 255, 255, 0.8); }
+  .hero__search :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 0.8; }
+  .hero__search ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 0.8; }
+  .hero__search :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(255, 255, 255, 0.8); }
 
 .hero__search__input {
+  color: white;
+  background-color: transparent;
   border: 0;
   width: 20em;
   outline: none;
   font-size: 2em;
   text-align: center;
-  border-bottom: 3px solid black; }
+  border-bottom: 3px solid white; }
   @media only screen and (orientation: landscape) {
     .hero__search__input {
       width: 14em; } }
   @media only screen and (orientation: portrait) {
     .hero__search__input {
       font-size: 5vw;
-      max-width: 80vw; } }
+      max-width: 69vw; } }
 
 .App-header {
   background-color: #222;
@@ -129,7 +149,7 @@ a:hover {
   border-radius: 6px;
   width: 100%;
   padding: 1em;
-  font-family: "Karla";
+  font-family: "Karla", sans-serif;
   margin: 1em 0; }
 
 .resource-thumb {

@@ -35,6 +35,7 @@
 
 .homepage-container {
   width: 100%;
+  text-align: center;
 }
 
 a {
@@ -89,6 +90,8 @@ a:hover {
 }
 
 .filter-results__trail-card {
+  flex: 0 1 23%;
+
   @media only screen and (max-width: $media-wide-break) {
     flex: 0 1 23%;
   }
@@ -119,7 +122,9 @@ a:hover {
   align-content: center;
   text-align: center;
   height: 60vh;
-  background-size: 400px;
+  background: url('http://i.imgur.com/NYf11DY.png') 15% 15%/15%, linear-gradient(45deg, rgb(246,230,180) 0%,rgb(237,144,23) 100%);
+  margin: 5vh 0;
+  color: white;
 }
 
 .hero__header {
@@ -128,9 +133,25 @@ a:hover {
 
 .hero__search {
   flex: 0 0 100%;
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: rgba(255,255,255,0.8);
+  }
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+     opacity:  0.8;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color: white;
+     opacity: 0.8;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color: rgba(255,255,255,0.8);
+  }
 }
 
 .hero__search__input {
+  color: white;
+  background-color: transparent;
   border: 0;
   width: 20em;
   outline: none;
@@ -140,10 +161,10 @@ a:hover {
   }
   @media only screen and (orientation: portrait) {
     font-size: 5vw;
-    max-width: 80vw;
+    max-width: 69vw;
   }
   text-align: center;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid white;
 }
 
 .App-header {
@@ -162,7 +183,7 @@ a:hover {
   border-radius: 6px;
   width: 100%;
   padding: 1em;
-  font-family: "Karla";
+  font-family: "Karla", sans-serif;
   margin: 1em 0;
 }
 

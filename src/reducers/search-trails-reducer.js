@@ -1,8 +1,8 @@
-export default (trailResults=[], action) => {
+export default (trails={search: [], featured: []}, action) => {
   switch (action.type) {
     case "FILTER_TRAILS":
-      return action.payload
+      return {...trails, search: action.payload}
     default:
-      return trailResults
+      return trails
   }
 }

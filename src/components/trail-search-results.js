@@ -13,7 +13,7 @@ const TrailSearchResults = props => {
 
 const mapStateToProps = store => {
   return {
-    trailResults: store.trailResults
+    trailResults: store.trailResults.search
   }
 }
 
