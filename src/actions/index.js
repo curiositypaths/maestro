@@ -80,6 +80,14 @@ export const searchTrails = query => {
   }
 }
 
+export const fetchFeaturedTrails = () => {
+  let response = trailAdapter.fetchFeaturedTrails()
+  return {
+    type: "FETCH_FEATURED_TRAILS",
+    payload: response
+  }
+}
+
 export const fetchCategories = () => {
   let categories = categoryAdapter.fetchCategories()
   return {

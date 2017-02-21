@@ -43,9 +43,10 @@ class CreateTrail extends Component {
 
   render() {
     return (
-      <div>
+      <div className="create-trail">
+        <h1 className="create-trail__heading">Create a new Trail</h1>
+        <p>Trails are a curated list of tutorials that help you learn a new skill. Think of all the resources and guides that helped you get to where you are today. How would you lead a friend down the same path, but <em>better</em>?</p>
         <form onSubmit={this.handleSubmit}>
-          <h1>Create a new Trail</h1>
           <label>Select a category: </label>
           <select ref="category" required >
             { this.renderCategories() }

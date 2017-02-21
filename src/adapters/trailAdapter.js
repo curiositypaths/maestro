@@ -53,5 +53,10 @@ export default {
   searchTrails: function(query) {
     return axios.post(`/search/trails/`, {query: query}).then( response => {
     return response.data
-  })
-}}
+  })},
+
+  fetchFeaturedTrails: () => {
+    debugger
+    axios.post(`/search/trails/featured`).then(response => response.data)
+  }
+}
