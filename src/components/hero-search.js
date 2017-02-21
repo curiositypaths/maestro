@@ -5,9 +5,25 @@ import { searchTrails } from '../actions/'
 import _ from 'lodash'
 
 class HeroSearch extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      keywords: ["JavaScript", "how to cook", "photography", "editing", "C++", "Redux", "color theory", "programming", "how to be human"],
+      featured: "programming",
+    }
+  }
 
   componentWillMount() {
     this.handleSearch = _.debounce(this.handleSearch, 500)
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(this.shuffleFeatured.bind(this), 2500)
+  }
+
+  shuffleFeatured() {
+    let rand = Math.floor(Math.random() * this.state.keywords.length)
+    this.setState({...this.state, featured: this.state.keywords[rand]})
   }
 
   handleSearch() {
@@ -16,8 +32,12 @@ class HeroSearch extends Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval)
+  }
+
   render() {
-    return <form className="hero__search" onSubmit={e => e.preventDefault()}><input type="text" placeholder="What will you learn today?" ref="search" onClick={e => e.target.placeholder = ""} onBlur={e => e.target.placeholder = "What will you learn today?"} onChange={this.handleSearch.bind(this)} className="hero__search__input bold" /></form>
+    return <form className="hero__search" onSubmit={e => e.preventDefault()}><input type="text" placeholder={this.state.featured} ref="search" onClick={e => e.target.placeholder = ""} onBlur={e => e.target.placeholder = this.state.featured} onChange={this.handleSearch.bind(this)} className="hero__search__input bold" /></form>
   }
 }
 

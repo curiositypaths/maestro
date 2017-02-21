@@ -1,4 +1,4 @@
-export default (trails={featuredTrails: []}, action) => {
+export default (trails=null, action) => {
   switch (action.type) {
     case "ALL_TRAILS":
       return action.payload

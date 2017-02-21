@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TrailCard from './trail-card'
 
+// stretch: Add a "no results shown" for props length 0
 
 const TrailSearchResults = props => {
   return (
