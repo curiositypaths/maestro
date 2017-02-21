@@ -20,7 +20,7 @@ class EditTrail extends Component {
       let currentTrail = this.props.currentTrail
       // let author = this.props.currentTrail.author
       return (
-        <div id="trail_container">
+        <div className="trail_container">
           <h1>{currentTrail.title}</h1>
           <h3>{currentTrail.category}</h3>
           <h4>{currentTrail.description}</h4>
