@@ -11,18 +11,26 @@ class NavBar extends Component {
     this.handleGetUserTrails = this.handleGetUserTrails.bind(this)
 	}
 
-	componentDidMount() {
+	// componentWillMount() {
+ //    this.setCurrentUser()
+ //  }
+
+  componentDidMount() {
     this.setCurrentUser()
   }
+
+  // componentDidUpdate() {
+  //   this.setCurrentUser()
+  // }
 
   setCurrentUser() {
     this.props.authUser(sessionStorage.jwt)
   }
 
   currentUserIsSet() {
-    if (this.props.users.currentUser === undefined)
+    if (this.props.users.currentUser === undefined || this.props.users.currentUser === null)
       return false
-    else if (this.props.users.currentUser.user_id === 'null' || this.props.users.currentUser.user_id === null) {
+    else if (this.props.users.currentUser.id === 'null' || this.props.users.currentUser.id === null) {
       return false
     } else {
       return true
@@ -41,7 +49,7 @@ class NavBar extends Component {
   }
 
 	render() {
-		let logInAndOutOutOptions
+		let logInAndOutOutOptions = ''
     if (this.currentUserIsSet() === true) {
       logInAndOutOutOptions = <div className="navbar__buttons__container"><a href={`/trails/new`}>Post a new trail</a><a href={`/users/${this.props.users.currentUser.id}`}>Profile</a><a href="" onClick={ this.handleLogout }>Logout</a></div>
     } else {

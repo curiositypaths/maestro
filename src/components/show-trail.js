@@ -21,20 +21,20 @@ class ShowTrail extends Component {
   }
 
   handleVote() {
-    let voteParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    let voteParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.id}
     console.log(voteParams)
     this.props.voteForTrack(voteParams)
   }
 
   handleFollow(event) {
     event.preventDefault()
-    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.id}
     this.props.followTrack(followParams)
   }
 
   handleUnFollow(event) {
     event.preventDefault()
-    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.user_id}
+    let followParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.id}
     this.props.unFollowTrack(followParams)
   }
 
@@ -55,9 +55,9 @@ class ShowTrail extends Component {
       let author = this.props.currentTrail.author
       let currentUser = this.props.users.currentUser
       let trailVotes = this.props.currentTrail.votes.length
-      let usersVotes = this.props.currentTrail.votes.filter(function(vote) {if (this.props.users.currentUser.user_id === vote.user_id) {return 'User voted for trail'} }.bind(this))
+      let usersVotes = this.props.currentTrail.votes.filter(function(vote) {if (this.props.users.currentUser.id === vote.user_id) {return 'User voted for trail'} }.bind(this))
       let userVoteForTrack = usersVotes.length > 0
-      let trailFollower = this.props.currentTrail.follows.filter(function(follower) {if (this.props.users.currentUser.user_id === follower.user_id) {return 'User voted for trail'} }.bind(this))
+      let trailFollower = this.props.currentTrail.follows.filter(function(follower) {if (this.props.users.currentUser.id === follower.user_id) {return 'User voted for trail'} }.bind(this))
       let userFollowsTrail = trailFollower.length > 0
       return (
         <div className="trail-container">
@@ -69,7 +69,7 @@ class ShowTrail extends Component {
           <h5>AUTHOR ID: { author.id }</h5>
           <h5>CURRENT USER ID: { currentUser.id }</h5>
            {
-             (currentUser.user_id === author.id) ?
+             (currentUser.id === author.id) ?
                <a href={`/trails/${currentTrail.id}/edit`}>Edit this trail</a> : <p>Authored by <a href={`/users/${author.id}`}>{author.email}</a></p>
            }
            <div id="trail-sections">

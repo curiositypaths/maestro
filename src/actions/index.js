@@ -22,7 +22,7 @@ export const loginUser = loginParams => {
 }
 
 export const logOutUser = () => {
-  let user = {data: {user: {user_id: null }}}
+  let user = {data: {user: {id: null }}}
   let userObj = user
   sessionStorage.clear()
   browserHistory.push("/")
