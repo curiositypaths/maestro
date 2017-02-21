@@ -56,7 +56,6 @@ export default {
   })},
 
   fetchFeaturedTrails: () => {
-    debugger
     axios.post(`/search/trails/featured`).then(response => response.data)
   }
 }

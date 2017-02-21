@@ -25,14 +25,14 @@ class SectionCreate extends Component {
   render() {
     //this.props.currentTrail.sections.map( function(section, i) {debugger})
     return (
-      <div>
-        {this.props.currentTrail.sections.map( (section, i) => <div key={i}><h3>{section.title}</h3><ResourceCreate sectionID={section.id} sectionIndex={i} /></div>)
-            }
-        <form className="section_create" onSubmit={this.handleSubmit} >
-          <label>Section title:
-            <input type="text" ref="section_title" />
-            <button >Add section</button>
-          </label>
+      <div className="section-create">
+        {this.props.currentTrail.sections.map( (section, i) => <div key={i} className="section">
+          <h3 className="section__title center">{section.title}</h3>
+        <ResourceCreate sectionID={section.id} sectionIndex={i} className="section__resource" />
+      </div>)}
+        <form className="section-create__form center" onSubmit={this.handleSubmit} >
+            <input type="text" ref="section_title" placeholder="Add a new section" className="section__new-section-input" />
+            <button >Add a new section</button>
         </form>
       </div>
     )

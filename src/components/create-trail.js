@@ -24,7 +24,8 @@ class CreateTrail extends Component {
       trail: {
         category_id: this.refs.category.value,
         title: this.refs.title.value,
-        description: this.refs.description.value
+        description: this.refs.description.value,
+        image_url: this.refs.image_url.value
       },
       jwt: sessionStorage.getItem('jwt')
     }
@@ -52,7 +53,8 @@ class CreateTrail extends Component {
             { this.renderCategories() }
           </select><br />
           <label>Title: <input ref="title" required /></label><br />
-          <label>Description: <textarea ref="description" required /></label>
+          <label>Description: <textarea ref="description" required /></label><br />
+          <label>Add a header image (via URL): <input type="text" ref="image_url" /></label>
           <br />
             <button>Add this trail</button>
         </form>

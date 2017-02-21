@@ -33,7 +33,7 @@ class ResourceCreate extends Component {
     return (
       <div className="resource-list">
         { resources.map( (resource, i) =>
-          <div className="resource-card" key={i}><img className="resource-card__thumb" src={resource.image_url } /><div className="resource-card__details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
+          <div className="resource-card" key={i}><img className="resource-card__thumb" src={resource.image_url } alt={resource.description} /><div className="resource-card__details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
           )
 
         }
@@ -43,17 +43,18 @@ class ResourceCreate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="section-inner">
         { this.renderResources.call(this) }
-        <form className="resource_create" onSubmit={this.handleSubmit} >
-          <label>Resource title:
+        <form className="resource-create" onSubmit={this.handleSubmit} >
+          <label><strong>Resource title:</strong> &nbsp;
             <input type="text" ref="resource_title" /><br />
           </label>
-          <label>Resource URL:
+          <label><strong>Resource URL:</strong> &nbsp;
             <input type="text" ref="resource_url" /><br />
           </label>
-          <label>What exactly will this resource teach you?<br /><textarea ref="resource_notes" /><br /></label>
+          <div className="resource-create__notes-container"><label><strong>What exactly will this resource teach you?</strong><br /><textarea ref="resource_notes" className="resource-create__notes" /><br /></label></div>
           <button>Add resource</button>
+          <hr className="section__hr" />
         </form>
       </div>
     )

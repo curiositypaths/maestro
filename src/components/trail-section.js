@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class TrailSection extends Component {
-  addSection() {
-    debugger
-  }
+  // addSection() {
+  // }
 
   render() {
     return (
