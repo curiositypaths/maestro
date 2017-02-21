@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function TrailCard(props) {
-  debugger
   return (
   <div className="filter-results__trail-card">
     <div className="filter-results__trail-card__thumb"></div>

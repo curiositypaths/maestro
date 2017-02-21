@@ -10,10 +10,17 @@ class TrailFeature extends Component {
   }
 
   render() {
+    let featuredTrailsList = ''
+    if (this.props.trails !== null) {
+      featuredTrailsList = this.props.trails.map( (trail, i) => <TrailCard trail={trail} key={i}/> )
+    } else {
+      console.log('no featured trails')
+    }
+    //debugger
     return (
       <div className="trail-feature">
         <h4>Featured Trails:</h4>
-        {/* {props.trails.map(trail => <TrailCard trail={trail} />)} */}
+        { featuredTrailsList }
       </div>
     )
   }
@@ -22,7 +29,8 @@ class TrailFeature extends Component {
 
 const mapStateToProps = store => {
   return {
-    featuredTrails: store.trailResults.featured
+    featuredTrails: store.trailResults.featured,
+    trails: store.trails
   }
 }
 
