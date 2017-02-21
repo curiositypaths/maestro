@@ -6,8 +6,6 @@ export default (trails=null, action) => {
       return action.payload
     case "FETCH_TRAIL":
       return action.payload
-    case "FETCH_FEATURED_TRAILS":
-      return {...trails, featuredTrails: action.layload}
     default:
       return null
   }
