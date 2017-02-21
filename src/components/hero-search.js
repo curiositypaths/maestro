@@ -36,8 +36,17 @@ class HeroSearch extends Component {
     clearInterval(this.interval)
   }
 
+// FIXME: event handler callbacks to set and clear shuffler should be abstracted into functions
+
   render() {
-    return <form className="hero__search" onSubmit={e => e.preventDefault()}><input type="text" placeholder={this.state.featured} ref="search" onClick={e => e.target.placeholder = ""} onBlur={e => e.target.placeholder = this.state.featured} onChange={this.handleSearch.bind(this)} className="hero__search__input bold" /></form>
+    return <form className="hero__search" onSubmit={e => e.preventDefault()}>
+      <input type="text" placeholder={this.state.featured} ref="search" onClick={e => { e.target.placeholder = ""
+      clearInterval(this.interval)
+    }} onBlur={e => {
+      e.target.placeholder = this.state.featured
+      this.interval = setInterval(this.shuffleFeatured.bind(this), 2500)
+    }} onChange={this.handleSearch.bind(this)} className="hero__search__input bold" />
+  </form>
   }
 }
 

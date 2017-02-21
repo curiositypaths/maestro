@@ -20,13 +20,14 @@ class EditTrail extends Component {
       let currentTrail = this.props.currentTrail
       // let author = this.props.currentTrail.author
       return (
-        <div className="trail_container">
-          <h1>{currentTrail.title}</h1>
-          <h3>{currentTrail.category}</h3>
-          <h4>{currentTrail.description}</h4>
+        <div className="container">
+          <h1 className="trail-container__title bold">{currentTrail.title}</h1>
+          <section className="trail-container__description">{currentTrail.description}
+            <hr className="section__hr" />
+          </section>
           <div className="trail-sections">
             <SectionCreate trailId={this.props.currentTrail.id} />
-          </div>
+          </div><br /><br />
           <button onClick={this.deleteTrail.bind(this)}>Delete this Trail</button>
         </div>
       )
