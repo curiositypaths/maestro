@@ -33,11 +33,6 @@
   justify-content: center;
 }
 
-.homepage-container {
-  width: 100%;
-  text-align: center;
-}
-
 a {
   transition: color, .2s;
   color: #444;
@@ -82,6 +77,10 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 3px;
   height: 20vh;
+}
+
+h3 {
+  font-size: 1.5em;
 }
 
 .bold {
@@ -154,10 +153,16 @@ textarea {
   @media only screen and (max-width: $media-tablet-break) {
     flex: 0 1 45%;
   }
-
   @media only screen and (max-width: $media-portrait-break) {
     flex: 0 1 100%;
   }
+  @media only screen and (orientation: landscape) {
+    img {
+      height: 25vh;
+      object-fit: cover;
+    }
+  }
+
   text-align: center;
   border: 1px solid #e1e1e1;
   border-radius: 5px;
@@ -166,6 +171,9 @@ textarea {
 
 .filter-results__trail-card h3 {
   margin: .3em 0;
+  @media only screen and (max-width: $media-mobile-break) {
+    font-size: 2rem;
+  }
 }
 
 .filter-results__trail-card img {
@@ -186,9 +194,14 @@ textarea {
   background: url('http://i.imgur.com/NYf11DY.png') 15% 15%/15%, linear-gradient(45deg, rgb(246,230,180) 0%,rgb(237,144,23) 100%);
   margin: 5vh 0;
   color: white;
+  padding: 2em;
 }
 
 .hero__header {
+  font-size: 1.8em;
+  @media screen and (max-width: $media-portrait-break) and (orientation: landscape) {
+    font-size: 1.2em;
+  }
   flex: 0 0 100%;
 }
 
@@ -217,12 +230,13 @@ textarea {
   border: 0;
   width: 10em;
   outline: none;
-  font-size: 2em;
+  font-size: 1.6em;
+  margin: 0;
   @media only screen and (orientation: landscape) {
-    width: 10em;
+    width: 9em;
   }
   @media only screen and (orientation: portrait) {
-    font-size: 5vw;
+    font-size: 7vw;
     max-width: 69vw;
   }
   text-align: center;

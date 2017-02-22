@@ -22,10 +22,6 @@
   flex-wrap: wrap;
   justify-content: center; }
 
-.homepage-container {
-  width: 100%;
-  text-align: center; }
-
 a {
   transition: color, .2s;
   color: #444;
@@ -65,6 +61,9 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 3px;
   height: 20vh; }
+
+h3 {
+  font-size: 1.5em; }
 
 .bold {
   font-weight: bold; }
@@ -127,12 +126,19 @@ textarea {
   @media only screen and (max-width: 1024px) {
     .filter-results__trail-card {
       flex: 0 1 45%; } }
-  @media only screen and (max-width: 550px) {
+  @media only screen and (max-width: 570px) {
     .filter-results__trail-card {
       flex: 0 1 100%; } }
+  @media only screen and (orientation: landscape) {
+    .filter-results__trail-card img {
+      height: 25vh;
+      object-fit: cover; } }
 
 .filter-results__trail-card h3 {
   margin: .3em 0; }
+  @media only screen and (max-width: 320px) {
+    .filter-results__trail-card h3 {
+      font-size: 2rem; } }
 
 .filter-results__trail-card img {
   width: 100%;
@@ -149,10 +155,15 @@ textarea {
   height: 60vh;
   background: url("http://i.imgur.com/NYf11DY.png") 15% 15%/15%, linear-gradient(45deg, #f6e6b4 0%, #ed9017 100%);
   margin: 5vh 0;
-  color: white; }
+  color: white;
+  padding: 2em; }
 
 .hero__header {
+  font-size: 1.8em;
   flex: 0 0 100%; }
+  @media screen and (max-width: 570px) and (orientation: landscape) {
+    .hero__header {
+      font-size: 1.2em; } }
 
 .hero__search {
   display: inline; }
@@ -177,15 +188,16 @@ textarea {
   border: 0;
   width: 10em;
   outline: none;
-  font-size: 2em;
+  font-size: 1.6em;
+  margin: 0;
   text-align: center;
   border-bottom: 3px solid white; }
   @media only screen and (orientation: landscape) {
     .hero__search__input {
-      width: 10em; } }
+      width: 9em; } }
   @media only screen and (orientation: portrait) {
     .hero__search__input {
-      font-size: 5vw;
+      font-size: 7vw;
       max-width: 69vw; } }
 
 .App-header {
