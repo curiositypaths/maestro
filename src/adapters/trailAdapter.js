@@ -45,7 +45,7 @@ export default {
   },
 
    getTrailsUserFollows: function(userParams) {
-    return axios.get(`/users/${userParams.userId}/trails`).then(trails => {
+    return axios.get(`/users/${userParams.id}/trails`).then(trails => {
       return trails.data
     })
   },
