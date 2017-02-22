@@ -17,7 +17,7 @@ import UserProfile from './components/show-user'
 export default (
   <Route path='/' component={ App }>
     <IndexRoute component={ Homepage } />
-    <Route path='/register/' component={ UserSignUp }/>
+    <Route path='register' component={ UserSignUp }/>
     <Route path='/login' component={ UserLogin } />
     <Route path='/trails/new' component={ CreateTrail } />
     <Route path='/trails/:id/edit' component={ EditTrail } />
