@@ -13,7 +13,7 @@ class TrailFeature extends Component {
     return (
       <div className="trail-feature">
         <h4>Featured Trails:</h4>
-        {/* {props.trails.map(trail => <TrailCard trail={trail} />)} */}
+        {this.props.featuredTrails && this.props.featuredTrails.map(trail => <TrailCard trail={trail} />)}
       </div>
     )
   }

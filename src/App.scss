@@ -46,7 +46,7 @@ a {
 
 a:hover {
   transition: color, .2s;
-  color: $hover-color;
+  color: $accent;
 }
 
 input {
@@ -65,14 +65,16 @@ input {
 button {
   display: block;
   margin: 1em auto;
-  border: 1px solid gold;
-  background-color: gold;
+  border: 0;
+  background-color: $darkaccent;
   color: white;
   border-radius: 21px;
   padding: .5em 1em;
+  transition: .4s;
 }
 
 button:hover {
+  background-color: gold;
   color: #fffbde;
   transition: .4s;
 }
@@ -82,6 +84,11 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 3px;
   height: 20vh;
+}
+
+.inline-margin {
+  display: inline-block;
+  margin: 1em 0.5em;
 }
 
 .bold {
@@ -362,4 +369,10 @@ textarea {
 .resource-card__details p {
   font-size: .9em;
   margin: 0;
+}
+
+// TRAIL SHOW CSS
+
+.trail-show__title {
+  margin: 0.9em 0em 0.3em 0em;
 }

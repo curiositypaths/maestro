@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchTrail, authUser, voteForTrack, followTrack, unFollowTrack } from '../actions/'
 import { bindActionCreators } from 'redux'
+import ResourceCard from './resource-card'
 
 class ShowTrail extends Component {
   constructor() {
@@ -21,7 +22,7 @@ class ShowTrail extends Component {
   }
 
   handleVote() {
-    let voteParams = {trailId: this.props.currentTrail.id,userId: this.props.users.currentUser.id}
+    let voteParams = {trailId: this.props.currentTrail.id, userId: this.props.users.currentUser.id}
     console.log(voteParams)
     this.props.voteForTrack(voteParams)
   }
@@ -42,10 +43,8 @@ class ShowTrail extends Component {
     let sections = this.props.currentTrail.sections
     return sections.map( (section, i) =>
       <div key={i} className="trail-section">
-        <h3>{ section.title }</h3>
-        <ul>
-          { section.resources.map( (resource, i) => <li key={i}>{resource.title}</li>) }
-        </ul>
+        <h3 className="section__title center">{ section.title }</h3>
+          { section.resources.map( (resource, i) => <ResourceCard resource={resource} key={i} />)}
       </div>)
   }
 
@@ -62,20 +61,35 @@ class ShowTrail extends Component {
 
       return (
         <div className="container">
-          <h1>{ currentTrail.title } ({trailVotes})</h1>
-          <h4>{ currentTrail.description }</h4>
+          <h1 className="trail-container__title trail-show__title bold">
+            { currentTrail.title }
+          </h1>
 
-          <h4>{userVoteForTrack ? <span></span> : <span onClick={this.handleVote} className="fa fa-thumbs-up" aria-hidden="true"></span>}</h4>
-          {userFollowsTrail ? <button onClick={this.handleUnFollow}>Unfollow Trail</button> : <button onClick={this.handleFollow}>Follow trail</button> }
-          <h5>AUTHOR ID: { author.id }</h5>
-           {
-             (currentUser && currentUser.id === author.id) ?
-               <a href={`/trails/${currentTrail.id}/edit`}>Edit this trail</a> : <p>Authored by <a href={`/users/${author.id}`}>{author.email}</a></p>
-           }
-           <div id="trail-sections">
-             This trail has { currentTrail.sections.length } sections.
-             { this.renderSections.call(this) }
-           </div>
+          <h4 className="trail-container__title">
+            By { author.first_name } { author.last_name }
+          </h4>
+
+          <section className="trail-container__description">
+            { currentTrail.description }
+          </section>
+
+          <div className="trail-container__title">
+            <button className="inline-margin">{userVoteForTrack ? <span className="fa fa-thumbs-up" onClick={this.handleVote}></span> : <span onClick={this.handleVote} className="fa fa-thumbs-o-up" aria-hidden="true"></span>}</button>
+
+            {userFollowsTrail ? <button onClick={this.handleUnFollow} className="inline-margin">Unfollow Trail</button> : <button onClick={this.handleFollow} className="inline-margin">Follow trail</button> }
+          </div>
+
+
+          <div className="section-inner">
+          <div className="resource-list">
+             {
+               (currentUser && currentUser.id === author.id) ?
+                 <form action={`/trails/${currentTrail.id}/edit`}><button>Edit this trail</button></form> : <div></div>
+             }
+             <div className="trail-sections">
+               { this.renderSections.call(this) }
+             </div>
+           </div></div>
         </div>
       )
     } else {

@@ -56,6 +56,6 @@ export default {
   })},
 
   fetchFeaturedTrails: () => {
-    axios.post(`/search/trails/featured`).then(response => response.data)
+    return axios.get(`/search/trails/featured`).then(response => response.data)
   }
 }
