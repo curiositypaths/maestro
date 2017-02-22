@@ -29,7 +29,7 @@ a {
 
 a:hover {
   transition: color, .2s;
-  color: gold; }
+  color: #ffa500; }
 
 input {
   margin: .5em 1em;
@@ -51,7 +51,8 @@ button {
   color: white;
   border-radius: 21px;
   padding: .5em 1em;
-  transition: .4s; }
+  transition: .4s;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); }
 
 button:hover {
   background-color: gold;
@@ -82,8 +83,7 @@ h3 {
   font-weight: bold; }
 
 .max {
-  width: 100% !important;
-  margin: 0 auto; }
+  width: 100% !important; }
 
 .section__hr {
   height: 2px;
@@ -166,7 +166,8 @@ h3 {
   background: url("http://i.imgur.com/NYf11DY.png") 15% 15%/15%, linear-gradient(45deg, #f6e6b4 0%, #ed9017 100%);
   margin: 5vh 0;
   color: white;
-  padding: 2em; }
+  padding: 2em;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); }
 
 .hero__header {
   font-size: 1.8em;
@@ -179,18 +180,22 @@ h3 {
   display: inline; }
   .hero__search ::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: white;
-    opacity: 0.8; }
+    opacity: 0.8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: white;
-    opacity: 0.8; }
+    opacity: 0.8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
 
 .hero__search__input {
   color: white;

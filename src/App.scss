@@ -41,7 +41,7 @@ a {
 
 a:hover {
   transition: color, .2s;
-  color: $accent;
+  color: $darkaccent;
 }
 
 input {
@@ -66,6 +66,7 @@ button {
   border-radius: 21px;
   padding: .5em 1em;
   transition: .4s;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
 }
 
 button:hover {
@@ -106,7 +107,7 @@ h3 {
 
 .max {
   width: 100% !important;
-  margin: 0 auto;
+  // margin: 0 auto;
 }
 
 .section__hr {
@@ -208,6 +209,7 @@ h3 {
   margin: 5vh 0;
   color: white;
   padding: 2em;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
 }
 
 .hero__header {
@@ -223,17 +225,21 @@ h3 {
   display: inline;
   ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: rgba(255,255,255,0.8);
+    text-shadow: $textshadow
   }
   :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: white;
-     opacity:  0.8;
+    opacity:  0.8;
+    text-shadow: $textshadow;
   }
   ::-moz-placeholder { /* Mozilla Firefox 19+ */
      color: white;
      opacity: 0.8;
+     text-shadow: $textshadow;
   }
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
      color: rgba(255,255,255,0.8);
+     text-shadow: $textshadow
   }
 }
 
