@@ -11,17 +11,9 @@ class NavBar extends Component {
     this.handleGetUserTrails = this.handleGetUserTrails.bind(this)
 	}
 
-	// componentWillMount() {
- //    this.setCurrentUser()
- //  }
-
   componentDidMount() {
     this.setCurrentUser()
   }
-
-  // componentDidUpdate() {
-  //   this.setCurrentUser()
-  // }
 
   setCurrentUser() {
     this.props.authUser(sessionStorage.jwt)

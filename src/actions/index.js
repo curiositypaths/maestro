@@ -34,6 +34,7 @@ export const logOutUser = () => {
 
 export const authUser = jwt => {
   let user = userAdapter.authUser(jwt)
+  console.log('You should now see the current user')
   return {
     type: "AUTH_USER",
     payload: user
@@ -137,6 +138,7 @@ export const unFollowTrack = (followParams) => {
 }
 
 export const getTrailsUserFollows = (userParams) => {
+  console.log(userParams)
   let trailsObj = trailAdapter.getTrailsUserFollows(userParams)
   return {
     type: "GET_TRAILS_USER_FOLLOWS",
