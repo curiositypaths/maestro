@@ -45,19 +45,24 @@ class CreateTrail extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className="trail-container__title">Create a new Trail</h1>
-        <p>Trails are a curated list of tutorials that help you learn a new skill. Think of all the resources and guides that helped you get to where you are today. How would you lead a friend down the same path, but <em>better</em>?</p>
-        <form onSubmit={this.handleSubmit} className="section-inner">
-          <label>Select a category: </label>
-          <select ref="category" required >
-            { this.renderCategories() }
-          </select><br />
-          <label><strong>Title:</strong> <input ref="title" required className="titleize elongate" /></label><br /><br />
-          <label><strong>Description:</strong> <br /><textarea ref="description" className="max" required /></label><br /><br />
-          <label><strong>Add a header image (via URL):</strong> <input type="text" ref="image_url" className="elongate" /></label>
-          <br />
-            <button>Add this trail</button>
-        </form>
+        <h2 className="trail-container__title bold">Create a new Trail</h2>
+        <div className="section-inner">
+          <p>Trails are a curated list of tutorials that help you learn a new skill. Think of all the resources and guides that helped you get to where you are today. How would you lead a friend down the same path, but <em>better</em>?</p>
+
+          <form onSubmit={this.handleSubmit} className="section-inner">
+            <label className="section-inner__input"><strong>Select a category:</strong>
+              <select ref="category" className="max" required >
+                { this.renderCategories() }
+              </select><br />
+            </label>
+
+            <label className="section-inner__input"><strong>Title:</strong> <input ref="title" required className="max" /></label><br /><br />
+            <label className="section-inner__input"><strong>Description:</strong> <br /><textarea ref="description" className="resource-create__notes" required /></label><br /><br />
+            <label className="section-inner__input"><strong>Add a header image (via URL):</strong> <input type="text" ref="image_url" className="max" /></label>
+            <br />
+              <button>Add this trail</button>
+          </form>
+        </div>
       </div>
 
       )
