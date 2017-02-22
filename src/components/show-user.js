@@ -22,7 +22,7 @@ class UserProfile extends Component {
     if (!!this.props.users.currentlyViewedUser) {
       let user = this.props.users.currentlyViewedUser
       return (
-        <div className="container">
+        <div className="featured-list">
           <h2 className="trail-container__title">{`${user.first_name} ${user.last_name}`}</h2>
           <h3 className="trail-container__title">You posted { user.trails.length } trails</h3>
           {

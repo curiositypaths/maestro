@@ -6,8 +6,11 @@ import TrailCard from './trail-card'
 
 const TrailSearchResults = props => {
   return (
-   <div className="filter-results">
-     { props.trailResults.map( (trail, i) => <TrailCard trail={trail} key={i}/> ) }
+   <div className="trail-feature">
+      {props.trailResults.length ? <h4 className="titleize center">Search Results</h4> : "" }
+     <div className="filter-results">
+       { props.trailResults.map( (trail, i) => <TrailCard trail={trail} key={i}/> ) }
+     </div>
    </div>
   )
 }

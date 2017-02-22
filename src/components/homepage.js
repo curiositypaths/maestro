@@ -9,8 +9,8 @@ class Homepage extends Component {
     return (
       <div className="homepage-container">
         <Hero />
-        <Dashboard />
         <TrailSearchResults />
+        <Dashboard />
         <TrailFeature />
       </div>
     )

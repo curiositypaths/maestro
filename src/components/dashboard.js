@@ -8,7 +8,6 @@ class TrailsUserFollows extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.users.currentUser.id === null && nextProps.users.currentUser.id !== null) {
-      console.log('I have a user')
       this.props.getTrailsUserFollows({'id': nextProps.users.currentUser.id})
     }
   }
@@ -17,9 +16,11 @@ class TrailsUserFollows extends Component {
     let trailsFollowedByUser = this.props.followedTrails.length !== 0 ? this.props.followedTrails.map( (trail, i) => <TrailCard trail={trail} key={i}/> ) : <div>No trails</div>
 
     return (
-      <div>
-        <h4>My current trails:</h4>
-        {trailsFollowedByUser}
+      <div className="featured-trails">
+        <h4 className="titleize center">My current trails:</h4>
+        <div className="filter-results">
+          {trailsFollowedByUser}
+        </div>
       </div>
       )
 
