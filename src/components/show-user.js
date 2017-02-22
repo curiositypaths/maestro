@@ -2,11 +2,20 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUser } from '../actions/index'
 import { bindActionCreators } from 'redux'
+import TrailCard from './trail-card'
 
 class UserProfile extends Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.params.id)
+  }
+
+  renderTrails(trails) {
+    return (
+      <div className="resource-list">
+       { trails.map((trail, i) => <TrailCard trail={trail} key={i} />) }
+     </div>
+    )
   }
 
   renderProfile() {
@@ -15,12 +24,11 @@ class UserProfile extends Component {
       return (
         <div className="container">
           <h2 className="trail-container__title">{`${user.first_name} ${user.last_name}`}</h2>
-          <h3>Your posted { user.trails.length } trails</h3>
-          <ul>{
-            user.trails.length ?
-            user.trails.map( (trail, i) => <li key={i}><a href={`/trails/${trail.id}`}>{ trail.title }</a></li> ) : <p>Nothing to show yet... <a href="/trails/new">add a trail</a> and it'll show up here!</p>
-          }</ul>
-          <h3>Your followed trails: </h3>
+          <h3 className="trail-container__title">You posted { user.trails.length } trails</h3>
+          {
+            user.trails.length ? this.renderTrails.call(this, user.trails) : <p>Nothing to show yet... <a href="/trails/new">add a trail</a> and it'll show up here!</p>
+          }
+          <h3 className="trail-container__title">Your followed trails: </h3>
       </div>
     )} else {
       return <h1></h1>

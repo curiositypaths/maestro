@@ -23,7 +23,6 @@ class ShowTrail extends Component {
 
   handleVote() {
     let voteParams = {trailId: this.props.currentTrail.id, userId: this.props.users.currentUser.id}
-    console.log(voteParams)
     this.props.voteForTrack(voteParams)
   }
 
@@ -59,6 +58,8 @@ class ShowTrail extends Component {
       let trailFollower = this.props.currentTrail.follows.filter(function(follower) {if (this.props.users.currentUser.id === follower.user_id) {return 'User voted for trail'} }.bind(this))
       let userFollowsTrail = trailFollower.length > 0
 
+
+
       return (
         <div className="container">
           <h1 className="trail-container__title trail-show__title bold">
@@ -74,18 +75,23 @@ class ShowTrail extends Component {
           </section>
 
           <div className="trail-container__title">
-            <button className="inline-margin">{userVoteForTrack ? <span className="fa fa-thumbs-up" onClick={this.handleVote}></span> : <span onClick={this.handleVote} className="fa fa-thumbs-o-up" aria-hidden="true"></span>}</button>
-
-            {userFollowsTrail ? <button onClick={this.handleUnFollow} className="inline-margin">Unfollow Trail</button> : <button onClick={this.handleFollow} className="inline-margin">Follow trail</button> }
-          </div>
+            {
+              (currentUser && currentUser.id === author.id) ?
+                <form action={`/trails/${currentTrail.id}/edit`}><button>Edit this trail</button></form> :
+                <div>
+                  <button className="inline-margin">
+                    {userVoteForTrack ? <span className="fa fa-thumbs-up" onClick={this.handleVote}></span> : <span onClick={this.handleVote} className="fa fa-thumbs-o-up" aria-hidden="true"></span>}
+                  </button>
+                    {userFollowsTrail ? <button onClick={this.handleUnFollow} className="inline-margin">Unfollow Trail</button> : <button onClick={this.handleFollow} className="inline-margin">Follow trail</button> }
+                </div>
+                }
+            </div>
 
 
           <div className="section-inner">
+            <hr className="section__hr" />
+
           <div className="resource-list">
-             {
-               (currentUser && currentUser.id === author.id) ?
-                 <form action={`/trails/${currentTrail.id}/edit`}><button>Edit this trail</button></form> : <div></div>
-             }
              <div className="trail-sections">
                { this.renderSections.call(this) }
              </div>
