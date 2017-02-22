@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { createResource } from '../actions/'
+import ResourceCard from './resource-card'
 
 class ResourceCreate extends Component {
   constructor(props) {
@@ -32,10 +33,7 @@ class ResourceCreate extends Component {
     let resources =  this.props.currentTrail.sections[this.props.sectionIndex].resources
     return (
       <div className="resource-list">
-        { resources.map( (resource, i) =>
-          <div className="resource-card" key={i}><img className="resource-card__thumb" src={resource.image_url } alt={resource.description} /><div className="resource-card__details"><a href={ resource.url }><h4>{ resource.title }</h4></a><p>{ resource.notes }</p></div></div>
-          )
-
+        { resources.map( (resource, i) => <ResourceCard resource={resource} key={i} />)
         }
       </div>
     )

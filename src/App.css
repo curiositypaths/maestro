@@ -29,7 +29,7 @@ a {
 
 a:hover {
   transition: color, .2s;
-  color: #ffc689; }
+  color: #ffa500; }
 
 input {
   margin: .5em 1em;
@@ -46,13 +46,16 @@ input {
 button {
   display: block;
   margin: 1em auto;
-  border: 1px solid gold;
-  background-color: gold;
+  border: 0;
+  background-color: #ffa500;
   color: white;
   border-radius: 21px;
-  padding: .5em 1em; }
+  padding: .5em 1em;
+  transition: .4s;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); }
 
 button:hover {
+  background-color: gold;
   color: #fffbde;
   transition: .4s; }
 
@@ -61,6 +64,10 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 3px;
   height: 20vh; }
+
+.inline-margin {
+  display: inline-block;
+  margin: 1em 0.5em; }
 
 h3 {
   font-size: 1.5em; }
@@ -147,6 +154,9 @@ h3 {
 .filter-results__trail-card__copy {
   padding: 1.5em; }
 
+.homepage-container {
+  width: 100%; }
+
 .hero {
   display: flex;
   flex-wrap: wrap;
@@ -156,7 +166,8 @@ h3 {
   background: url("http://i.imgur.com/NYf11DY.png") 15% 15%/15%, linear-gradient(45deg, #f6e6b4 0%, #ed9017 100%);
   margin: 5vh 0;
   color: white;
-  padding: 2em; }
+  padding: 2em;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5); }
 
 .hero__header {
   font-size: 1.8em;
@@ -169,18 +180,22 @@ h3 {
   display: inline; }
   .hero__search ::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: white;
-    opacity: 0.8; }
+    opacity: 0.8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: white;
-    opacity: 0.8; }
+    opacity: 0.8;
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
   .hero__search :-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: rgba(255, 255, 255, 0.8); }
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2); }
 
 .hero__search__input {
   color: white;
@@ -302,5 +317,8 @@ h3 {
 .resource-card__details p {
   font-size: .9em;
   margin: 0; }
+
+.trail-show__title {
+  margin: 0.9em 0em 0.3em 0em; }
 
 /*# sourceMappingURL=App.css.map */
