@@ -9,14 +9,23 @@ class TrailFeature extends Component {
     this.props.fetchFeaturedTrails()
   }
 
-  render() {
+  displayFeaturedTrails() {
     let featuredTrailsList = (this.props.featuredTrails) ? this.props.featuredTrails.map( (trail, i) => <TrailCard trail={trail} key={i}/> ) : <div></div>
+    return (
+      <div>
+        <h4 className="titleize center">Featured Trails:</h4>
+        { featuredTrailsList }
+      </div>
+      )
+  }
+
+  render() {
+
     return (
 
       <div className="featured-trails">
-        <h4 className="titleize center">Featured Trails:</h4>
         <div className="filter-results">
-          { featuredTrailsList }
+          { this.displayFeaturedTrails() }
         </div>
       </div>
     )

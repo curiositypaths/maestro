@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { authUser, logOutUser, getTrailsUserFollows } from '../actions/index'
+import { Router, Route, Link } from 'react-router'
 
 class NavBar extends Component {
 	constructor(props) {
@@ -43,9 +44,9 @@ class NavBar extends Component {
 	render() {
 		let logInAndOutOutOptions = ''
     if (this.currentUserIsSet() === true) {
-      logInAndOutOutOptions = <div className="navbar__buttons__container"><a href={`/trails/new`}>Post a new trail</a><a href={`/users/${this.props.users.currentUser.id}`}>Profile</a><a href="" onClick={ this.handleLogout }>Logout</a></div>
+      logInAndOutOutOptions = <div className="navbar__buttons__container"><Link to={'/trails/new'}>Post a new trail</Link><Link to={`/users/${this.props.users.currentUser.id}`}>Profile</Link><a href="" onClick={ this.handleLogout }>Logout</a></div>
     } else {
-      logInAndOutOutOptions = <div className="navbar__buttons__container"><a href='/login'>Login</a><a href='/register'>Register</a></div>
+      logInAndOutOutOptions = <div className="navbar__buttons__container"><Link to={'/login'}>Login</Link><Link to={'/register'}>Register</Link></div>
     }
 		return (
 		<nav className="navbar container">
